@@ -1,0 +1,38 @@
+<video id="heroVideo" autoplay muted playsinline loop preload="metadata" poster="poster.jpg"
+       style="width:100%;height:100%;object-fit:cover;">
+  <source src="video.mp4" type="video/mp4">
+  Ваш браузер не підтримує відео.
+</video>
+
+<script>
+const video = document.getElementById('heroVideo');
+
+// Обновление кнопок
+const btnPlay = document.getElementById('btnPlay');
+const btnMute = document.getElementById('btnMute');
+function updatePlayBtn(){ btnPlay.textContent = video.paused ? '▶' : '⏸'; }
+function updateMuteBtn(){ btnMute.textContent = video.muted ? '🔈' : '🔊'; }
+updatePlayBtn(); updateMuteBtn();
+
+// Кнопки управления
+btnPlay.addEventListener('click', ()=>{ 
+  video.paused ? video.play() : video.pause(); 
+  updatePlayBtn();
+});
+btnMute.addEventListener('click', ()=>{
+  video.muted = !video.muted; 
+  updateMuteBtn();
+});
+
+// Попытка автозапуска
+video.play().catch(()=>{ 
+  console.log("Автоплей заблокован, нужен клик пользователя"); 
+});
+
+// Подгон под экран
+function resizeVideo(){
+  video.style.height = window.innerHeight + 'px';
+}
+window.addEventListener('resize', resizeVideo);
+resizeVideo();
+</script>
