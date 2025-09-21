@@ -508,7 +508,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const qs = new URLSearchParams({name, phone}).toString();
 
     fetch(`${API_URL}?${qs}`, { method: 'GET' })
-      .finally(() => window.location.href = 'https://твой-сайт/thanks.html');
+      .finally(() => window.location.href = 'thanks.html');
   });
 });
 </script>
