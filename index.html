@@ -402,19 +402,21 @@
                     <!--<li>Повертається на 360 градусів</li>-->
                 </ul>
 
-                <h2>Залишіть заявку</h2>
+               <h2>Залишіть заявку</h2>
 
-                <form id="order_form" class="form-block order_form" action="order.php" method="POST">
-                    <div class="btn-block">
-                        <input class="field" type="text" name="name" placeholder="Введіть ваше ім'я" required="">
-                    </div>
-                    <div class="btn-block">
-                        <input class="field" type="tel" name="phone" minlength="8" maxlength="15" placeholder="Введіть Ваш телефон" required="">
-                    </div>
-                    <div class="btn-block">
-                        <button class="button">Придбати зараз</button>
-                    </div>
-                </form>
+<form id="order_form" class="form-block order_form" action="order.php" method="POST">
+  <div class="btn-block">
+    <input class="field" type="text" name="name" placeholder="Введіть ваше ім'я" required>
+  </div>
+  <div class="btn-block">
+    <input class="field" id="phone" type="tel" name="phone" value="+380" minlength="13" maxlength="13" required>
+    <small id="phoneError" style="color:red; display:none;">Введіть номер у форматі +380XXXXXXXXX</small>
+  </div>
+  <div class="btn-block">
+    <button class="button">Придбати зараз</button>
+  </div>
+</form>
+
                 <div class="products_count">* Купили <b>17</b> шт за акцією</div>
             </section>
             <!-- result.php? 3 -->
@@ -477,25 +479,47 @@ const API_URL = 'https://leadproxy.v35883278.workers.dev/send';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('order_form');
+  const phoneInput = document.getElementById('phone');
+  const phoneError = document.getElementById('phoneError');
+
+  // фиксируем +380 в начале
+  phoneInput.addEventListener('input', () => {
+    if (!phoneInput.value.startsWith('+380')) {
+      phoneInput.value = '+380';
+    }
+    if (phoneInput.value.length > 13) {
+      phoneInput.value = phoneInput.value.slice(0, 13);
+    }
+  });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const name = form.name.value.trim();
-    const phone = form.phone.value.trim();
+    const phone = phoneInput.value.trim();
 
-    if(!name || !phone){
-      alert('Будь ласка, заповніть всі поля!');
+    if (!name) {
+      alert('Будь ласка, введіть ваше ім’я!');
       return;
     }
 
-    const qs = new URLSearchParams({name, phone}).toString();
+    // перевірка: має бути рівно +380 і 9 цифр
+    const phonePattern = /^\+380\d{9}$/;
+    if (!phonePattern.test(phone)) {
+      phoneError.style.display = 'block';
+      return;
+    } else {
+      phoneError.style.display = 'none';
+    }
+
+    const qs = new URLSearchParams({ name, phone }).toString();
 
     fetch(`${API_URL}?${qs}`, { method: 'GET' })
       .finally(() => window.location.href = 'thanks.html');
   });
 });
 </script>
+
 
 
 
