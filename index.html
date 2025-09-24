@@ -465,62 +465,14 @@
 
 <!-- цей скрипт в кожному індексі вкінці перед тегом </body> -->
 <script>
-const API_URL = 'https://leadproxy.v35883278.workers.dev/send';
-
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('order_form');
-  const phoneInput = document.getElementById('phone');
-  const phoneError = document.getElementById('phoneError');
-
-  // фиксируем +380 в начале
-  phoneInput.addEventListener('input', () => {
-    if (!phoneInput.value.startsWith('+380')) {
-      phoneInput.value = '+380';
-    }
-    if (phoneInput.value.length > 13) {
-      phoneInput.value = phoneInput.value.slice(0, 13);
-    }
-  });
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const name = form.name.value.trim();
-    const phone = phoneInput.value.trim();
-
-    if (!name) {
-      alert('Будь ласка, введіть ваше ім’я!');
-      return;
-    }
-
-    // перевірка: має бути рівно +380 і 9 цифр
-    const phonePattern = /^\+380\d{9}$/;
-    if (!phonePattern.test(phone)) {
-      phoneError.style.display = 'block';
-      return;
-    } else {
-      phoneError.style.display = 'none';
-    }
-
-    const qs = new URLSearchParams({ name, phone }).toString();
-
-    fetch(`${API_URL}?${qs}`, { method: 'GET' })
-      .finally(() => window.location.href = 'thanks.html');
-  });
-});
-</script>
-            <script>
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('order_form');
   const phoneInput = form.querySelector('input[name="phone"]');
 
   phoneInput.addEventListener('input', () => {
-    let val = phoneInput.value;
+    let val = phoneInput.value.replace(/\D/g, ''); // убираем все нецифры
 
-    // Убираем все пробелы и лишние символы
-    val = val.replace(/\D/g, '');
-
-    // Если юзер написал 380 в начале, оставляем только один +380
+    // Убираем дубли +380 или 380 в начале
     if (val.startsWith('380')) {
       val = '+380' + val.slice(3);
     } else if (val.startsWith('0')) {
@@ -530,9 +482,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Максимум 13 символов (формат +380XXXXXXXXX)
-    val = val.slice(0, 13);
-
-    phoneInput.value = val;
+    phoneInput.value = val.slice(0, 13);
   });
 
   form.addEventListener('submit', (e) => {
@@ -540,18 +490,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const name = form.name.value.trim();
     const phone = phoneInput.value.trim();
 
-    if(!name || phone.length !== 13) {
+    // Проверка формы
+    if (!name || phone.length !== 13) {
       alert('Будь ласка, заповніть усі поля правильно!');
       return;
     }
 
     const API_URL = 'https://leadproxy.v35883278.workers.dev/send';
-    const qs = new URLSearchParams({name, phone}).toString();
+    const qs = new URLSearchParams({ name, phone }).toString();
+
     fetch(`${API_URL}?${qs}`, { method: 'GET' })
       .finally(() => window.location.href = 'thanks.html');
   });
 });
 </script>
+
 
 
 
