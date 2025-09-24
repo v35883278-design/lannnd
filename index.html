@@ -467,12 +467,14 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('order_form');
-  const phoneInput = form.querySelector('input[name="phone"]');
+  const phoneInput = document.getElementById('phone');
+  const phoneError = document.getElementById('phoneError');
+
+  phoneInput.value = '+380';
 
   phoneInput.addEventListener('input', () => {
-    let val = phoneInput.value.replace(/\D/g, ''); // убираем все нецифры
+    let val = phoneInput.value.replace(/\D/g, '');
 
-    // Убираем дубли +380 или 380 в начале
     if (val.startsWith('380')) {
       val = '+380' + val.slice(3);
     } else if (val.startsWith('0')) {
@@ -481,8 +483,23 @@ document.addEventListener('DOMContentLoaded', () => {
       val = '+380' + val;
     }
 
-    // Максимум 13 символов (формат +380XXXXXXXXX)
-    phoneInput.value = val.slice(0, 13);
+    val = val.slice(0, 13);
+    phoneInput.value = val;
+  });
+
+  phoneInput.addEventListener('focus', () => {
+    if (phoneInput.selectionStart < 4) {
+      phoneInput.setSelectionRange(4, 4);
+    }
+  });
+
+  phoneInput.addEventListener('keydown', (e) => {
+    const cursorPos = phoneInput.selectionStart;
+    if ((cursorPos <= 4 && (e.key === 'Backspace' || e.key === 'Delete')) ||
+        (cursorPos < 4 && e.key.length === 1)) {
+      e.preventDefault();
+      phoneInput.setSelectionRange(4, 4);
+    }
   });
 
   form.addEventListener('submit', (e) => {
@@ -490,10 +507,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const name = form.name.value.trim();
     const phone = phoneInput.value.trim();
 
-    // Проверка формы
-    if (!name || phone.length !== 13) {
-      alert('Будь ласка, заповніть усі поля правильно!');
+    if (!name) {
+      alert('Будь ласка, введіть ваше ім’я!');
       return;
+    }
+
+    const phonePattern = /^\+380\d{9}$/;
+    if (!phonePattern.test(phone)) {
+      phoneError.style.display = 'block';
+      return;
+    } else {
+      phoneError.style.display = 'none';
     }
 
     const API_URL = 'https://leadproxy.v35883278.workers.dev/send';
@@ -504,6 +528,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
 
 
 
