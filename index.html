@@ -467,7 +467,7 @@
     <input type="text" name="name" placeholder="Введіть ваше ім'я" required>
   </div>
   <div>
-    <input type="tel" id="phone" name="phone" placeholder="Введіть Ваш телефон у форматі +380XXXXXXXXX" required>
+    <input type="tel" id="phone" name="phone" placeholder="+380XXXXXXXXX" required>
     <span id="phoneError" style="color:red; font-size:13px; display:none;"></span>
   </div>
   <button type="submit">Замовити</button>
@@ -481,11 +481,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const phoneInput = document.getElementById('phone');
   const phoneError = document.getElementById('phoneError');
 
+  // Автопідстановка +380
+  phoneInput.addEventListener('focus', () => {
+    if (phoneInput.value.trim() === '') {
+      phoneInput.value = '+380';
+    }
+  });
+
   function validatePhone(phone){
     return /^\+380\d{9}$/.test(phone);
   }
 
-  // Перевірка під час вводу
+  // Жива перевірка під час вводу
   phoneInput.addEventListener('input', () => {
     if (!validatePhone(phoneInput.value)) {
       phoneError.style.display = 'block';
@@ -496,7 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Перевірка при відправці
+  // Відправка форми
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -517,7 +524,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const qs = new URLSearchParams({name, phone}).toString();
 
     fetch(`${API_URL}?${qs}`, { method: 'GET' })
-      .finally(() => window.location.href = 'thanks.html');
+      .then(() => window.location.href = 'thanks.html')
+      .catch(() => alert('Сталася помилка. Спробуйте ще раз.'));
   });
 });
 </script>
