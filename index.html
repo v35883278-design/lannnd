@@ -467,7 +467,8 @@
     <input type="text" name="name" placeholder="Введіть ваше ім'я" required>
   </div>
   <div>
-    <input type="tel" name="phone" placeholder="Введіть Ваш телефон" required>
+    <input type="tel" id="phone" name="phone" placeholder="Введіть Ваш телефон у форматі +380XXXXXXXXX" required>
+    <span id="phoneError" style="color:red; font-size:13px; display:none;"></span>
   </div>
   <button type="submit">Замовити</button>
 </form>
@@ -477,15 +478,39 @@ const API_URL = 'https://leadproxy.v35883278.workers.dev/send';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('order_form');
+  const phoneInput = document.getElementById('phone');
+  const phoneError = document.getElementById('phoneError');
 
+  function validatePhone(phone){
+    return /^\+380\d{9}$/.test(phone);
+  }
+
+  // Перевірка під час вводу
+  phoneInput.addEventListener('input', () => {
+    if (!validatePhone(phoneInput.value)) {
+      phoneError.style.display = 'block';
+      phoneError.textContent = "Номер має бути у форматі +380XXXXXXXXX (9 цифр після 380)";
+    } else {
+      phoneError.style.display = 'none';
+      phoneError.textContent = "";
+    }
+  });
+
+  // Перевірка при відправці
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const name = form.name.value.trim();
-    const phone = form.phone.value.trim();
+    const phone = phoneInput.value.trim();
 
-    if(!name || !phone){
-      alert('Будь ласка, заповніть всі поля!');
+    if(!name){
+      alert('Будь ласка, введіть ваше ім’я!');
+      return;
+    }
+
+    if(!validatePhone(phone)){
+      phoneError.style.display = 'block';
+      phoneError.textContent = "Будь ласка, введіть коректний номер телефону у форматі +380XXXXXXXXX";
       return;
     }
 
@@ -496,6 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
 
 
 
