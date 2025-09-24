@@ -509,6 +509,50 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+            <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('order_form');
+  const phoneInput = form.querySelector('input[name="phone"]');
+
+  phoneInput.addEventListener('input', () => {
+    let val = phoneInput.value;
+
+    // Убираем все пробелы и лишние символы
+    val = val.replace(/\D/g, '');
+
+    // Если юзер написал 380 в начале, оставляем только один +380
+    if (val.startsWith('380')) {
+      val = '+380' + val.slice(3);
+    } else if (val.startsWith('0')) {
+      val = '+380' + val.slice(1);
+    } else if (!val.startsWith('+380')) {
+      val = '+380' + val;
+    }
+
+    // Максимум 13 символов (формат +380XXXXXXXXX)
+    val = val.slice(0, 13);
+
+    phoneInput.value = val;
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = form.name.value.trim();
+    const phone = phoneInput.value.trim();
+
+    if(!name || phone.length !== 13) {
+      alert('Будь ласка, заповніть усі поля правильно!');
+      return;
+    }
+
+    const API_URL = 'https://leadproxy.v35883278.workers.dev/send';
+    const qs = new URLSearchParams({name, phone}).toString();
+    fetch(`${API_URL}?${qs}`, { method: 'GET' })
+      .finally(() => window.location.href = 'thanks.html');
+  });
+});
+</script>
+
 
 
 
