@@ -1,545 +1,1004 @@
-<!DOCTYPE html><html lang="uk"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-    Інтернет-магазин    </title>
-    <meta name="description" content="Великий асортимент">
-    <meta name="keywords" content="Інтернет-магазин">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Водоканал - Опитування про відключення води</title>
+    <style>
+        :root {
+            /* Primitive Color Tokens */
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
 
-        
-        
-        
-        <style>#fast-delivery-widget {
+            /* RGB versions for opacity control */
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-red-500-rgb: 192, 21, 47;
+            --color-red-400-rgb: 255, 84, 89;
+            --color-orange-500-rgb: 168, 75, 47;
+            --color-orange-400-rgb: 230, 129, 97;
+
+            /* Background color tokens */
+            --color-bg-1: rgba(59, 130, 246, 0.08);
+            --color-bg-2: rgba(245, 158, 11, 0.08);
+            --color-bg-3: rgba(34, 197, 94, 0.08);
+            --color-bg-4: rgba(239, 68, 68, 0.08);
+            --color-bg-5: rgba(147, 51, 234, 0.08);
+            --color-bg-6: rgba(249, 115, 22, 0.08);
+            --color-bg-7: rgba(236, 72, 153, 0.08);
+            --color-bg-8: rgba(6, 182, 212, 0.08);
+
+            /* Water theme colors */
+            --water-blue-dark: #0A1628;
+            --water-blue-medium: #1E3A8A;
+            --water-blue-light: #3B82F6;
+            --water-cyan: #06B6D4;
+            --water-teal: #14B8A6;
+
+            /* Semantic Color Tokens */
+            --color-background: linear-gradient(135deg, var(--water-blue-dark) 0%, var(--water-blue-medium) 100%);
+            --color-surface: rgba(255, 255, 255, 0.1);
+            --color-text: var(--color-white);
+            --color-text-secondary: rgba(255, 255, 255, 0.8);
+            --color-primary: var(--water-cyan);
+            --color-primary-hover: var(--water-teal);
+            --color-primary-active: var(--color-teal-700);
+            --color-border: rgba(255, 255, 255, 0.2);
+
+            /* Typography */
+            --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-size-xs: 11px;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-md: 16px;
+            --font-size-lg: 18px;
+            --font-size-xl: 20px;
+            --font-size-2xl: 24px;
+            --font-size-3xl: 30px;
+            --font-size-4xl: 36px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+
+            /* Spacing */
+            --space-4: 4px;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-48: 48px;
+            --space-64: 64px;
+
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+
+            /* Animation */
+            --duration-fast: 150ms;
+            --duration-normal: 300ms;
+            --duration-slow: 500ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background: linear-gradient(135deg, #8B4513 0%, #CD853F 30%, #1E3A8A 60%, #0A1628 100%);
+            color: var(--color-text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Autumn background with falling elements */
+        .falling-elements {
             position: fixed;
-            bottom: 35px;
-            left: 20px;
-            z-index: 999;
-            padding: 10px 30px 10px 70px;
-            border-radius: 5px;
-            -webkit-box-shadow: 0 0 16px 0 rgba(0,0,0,.15);
-            box-shadow: 0 0 16px 0 rgba(0,0,0,.15);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
         }
-        #fast-delivery-widget .fast-delivery-widget__close {
-            display: block;
-            width: 11px;
-            height: 11px;
+
+        .snowflake, .leaf {
             position: absolute;
-            top:10px;
-            right: 10px;
+            top: -10px;
+            color: rgba(255, 255, 255, 0.8);
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        .leaf {
+            color: #CD853F;
+        }
+
+        .snowflake:nth-child(odd) {
+            animation-duration: 8s;
+            font-size: 14px;
+        }
+
+        .snowflake:nth-child(even) {
+            animation-duration: 12s;
+            font-size: 18px;
+        }
+
+        .leaf:nth-child(3n) {
+            animation-duration: 10s;
+            font-size: 16px;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-32) var(--space-24);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Logo */
+        .logo {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-white);
+            margin-bottom: var(--space-48);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            -webkit-text-stroke: 2px var(--color-black);
+            text-stroke: 2px var(--color-black);
+            text-shadow: 
+                2px 2px 0px var(--color-black),
+                -2px -2px 0px var(--color-black),
+                2px -2px 0px var(--color-black),
+                -2px 2px 0px var(--color-black),
+                0px 2px 0px var(--color-black),
+                2px 0px 0px var(--color-black),
+                0px -2px 0px var(--color-black),
+                -2px 0px 0px var(--color-black);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+        }
+
+        /* Water Drop Animation */
+        .water-drop-container {
+            position: relative;
+            margin-bottom: var(--space-64);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .water-drop-main {
+            font-size: 120px;
+            position: relative;
+            animation: dropPulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 25px 50px rgba(6, 182, 212, 0.6));
             cursor: pointer;
+            transition: all 0.3s ease;
         }
-        #fast-delivery-widget .fast-delivery-widget__close:before,
-        #fast-delivery-widget .fast-delivery-widget__close:after {
-            content:'';
-            display: block;
-            width: 1px;
-            height: 15px;
+
+        .water-drop-main:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 30px 60px rgba(6, 182, 212, 0.8));
+        }
+
+        /* Water drop glow effects */
+        .water-drop-glow {
             position: absolute;
-            top:-2px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, 
+                rgba(6, 182, 212, 0.4) 0%, 
+                rgba(20, 184, 166, 0.3) 30%,
+                rgba(59, 130, 246, 0.2) 60%,
+                transparent 80%);
+            border-radius: 50%;
+            animation: glowPulse 3s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
         }
-        #fast-delivery-widget .fast-delivery-widget__close:before {
-            left: 5px;
-            -moz-transform: rotate(-45deg);
-            -webkit-transform: rotate(-45deg);
-            -o-transform: rotate(-45deg);
-            -ms-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-        }
-        #fast-delivery-widget .fast-delivery-widget__close:after {
-            left: 5px;
-            -moz-transform: rotate(45deg);
-            -webkit-transform: rotate(45deg);
-            -o-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
-        }
-        #fast-delivery-widget.fast-delivery-widget_light .fast-delivery-widget__close:before,
-        #fast-delivery-widget.fast-delivery-widget_light .fast-delivery-widget__close:after {
-            background: #b5b5b5;
-        }
-        #fast-delivery-widget.fast-delivery-widget_green .fast-delivery-widget__close:before,
-        #fast-delivery-widget.fast-delivery-widget_green .fast-delivery-widget__close:after {
-            background: #fff;
-        }
-
-        #fast-delivery-widget .fast-delivery-widget__title {
-            font-size: 14px;
-            font-weight: 700;
-            line-height: 1.5em;
-            letter-spacing: .2px;
-        }
-        #fast-delivery-widget .fast-delivery-widget__info {
-            line-height: 1.5em;
-            font-size: 14px;
+        
+        .water-drop-glow-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, 
+                rgba(6, 182, 212, 0.6) 0%, 
+                rgba(20, 184, 166, 0.4) 40%,
+                transparent 70%);
+            border-radius: 50%;
+            animation: glowPulseInner 2s ease-in-out infinite reverse;
+            pointer-events: none;
+            z-index: -1;
         }
 
-        #fast-delivery-widget.fast-delivery-widget_light {
-            color: #333;
-            background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAFFklEQVRYhcXYaYydUxgH8N+t0dYyU0qLoqViryX2ZVS1tEVryRBrLJUYiYgPEiFEgk8IQiQm9lL70qIttaczidoaS60tsS+lWrdMtarjw3Pe3neue8edMcM/OXnvPec95/zfZzvPcwrNrfV6iH7YHielthQPYw4+w+paFmlpLFbsr+sBoYEYgyYcj01yYwdjMZ7FLLTh2x7s0S1imyYyJyYCA1P/EjyJ9XEUhuKM1N7GXMzAK+joLWL9MBJn4hRslxv7FPfiMXyCdbAtjhWq3R17pnZOIvkkHsVX+LOrjQtVbKwe+ycyTRiU+tsxPxF6BL9UWXcARieCY8o+qIinMR3zWhqL39RCbBgm4ARMFBKD74VRP5aef1QhVAnDMV6ouRFDcmPvYDZeQmtLY3FlObFdcTqOxm65iR/hfjyFd7tBZisckjb+INtLqHWc0MIBufeXC1XPwvSWxuInhebW+qtwPganl1YIQ50mpLOkRjL9sQvOThsPEyFkBm4VJrAmvduQSB6HI7FTbp0luKvQ3Fq/FBvlBubiYrxWI6EBGIspQuLrpf7VSs71O2Zialo/C15DE7mr0+8MvxSaW+t/KOuEn/C88KDn8FsXxCYJVRfS/w6h/qnYW0hwx9z7LwrDHybseK/cWPYxiwvNrfWLhUHeINR4rpKBrsZbeAgPiOBZjgPS2La5vvlpzn1YNxG4DCOqfNwbuAtb4Ar82C83+Bouxz64VBh+nQgbN+J1XIs90mYZ5glvuzCtsSxJ4VoswJVCcoN0xspEZizGtjQWW/BhNpiX2BTcnZvYIPR/kvCwLK6swONCXfMSkTwmJVI7V5DMl+k5HO9jVP6sPK+t4exEtpPEylEUgXRSIngLvhbGfbqIP9OFpLYRnnWhOIqGlK21BtdhctqYiJH9q21ey1nZIQLgS7gZxwiD3lVE9TG4IK2Vt6FFqU0Ux89N+CbN/0d0JbFKWIjrhWpPFp7bLo6cEUKtc3CWiFNXp3kFJVOoKXHoLrEMWe41Prf5r0JVE0Wo+E0ppmXk8s8+IZbHF+nZLkJLHpVItHcxtha9QSyTSj8ldZVjDVYJle+X+rpUaU8y2HJ0VPmdR0GEot2V4tmvusjJeoNYV8jWX1c4DJEktuF2/yOx74SjbCw8eBZeVkMK1dfE3sPhIgNZIPKumtDXxNaIA73b6A2v7BNUIzYSO/yXRMpRidhuaMWruAeH6hzB+xJrg26eWFahdKQ2WNSTr4i8/VSdq+6+wIpKxLJiZIE4765RcuvxIv+6Q41nXQ+xWfajTiknugyjRHXUhktEqjJOZAvjRPLYqzivraFBHP6TRTYLA+pwpyjhN0ezSPTm4jaRDE5LbZQImDXfP3SBDUU+15TayNzYMjxQh4vwYCI0XlQ0E1KbL1Q4U6j432KUcKbjcZiSKa0SBe8cPNHSWHw7C7BvpjZSFKBNaeJeqV0gVckik+2O1IYqXRGMxpa5sYXiymqOuCJYWwBUu1QZjINEbj9ZXDERlyivizDyhChkTxVS/Sl92PIkiYPSB07QuTBpxwviHqS1pbH4eSUC1Y6kn4X6nhFl/5S0ydY4IrX3RIGSeXOHCMr7pQ/aV6nMWylKsxmiiF7oHy5mqkmsEoaJUq4JByrZxx+JwCoRh/L148fCw2cIKf1evmhvXHV+KwrfO4XEjhNGvEEa75/acmE3sxOpRd3Yo0fEMhRFwfuUqBVPE1Isisu82eKG8W/S6Q7+AhQaQsvQfI6FAAAAAElFTkSuQmCC) no-repeat  15px center;
+        .water-drop-sparkle {
+            position: absolute;
+            top: 20%;
+            left: 60%;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            animation: sparkle 1.5s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        .water-drop-sparkle:nth-child(2) {
+            top: 40%;
+            left: 30%;
+            width: 6px;
+            height: 6px;
+            animation-delay: 0.5s;
+        }
+        
+        .water-drop-sparkle:nth-child(3) {
+            top: 60%;
+            left: 70%;
+            width: 4px;
+            height: 4px;
+            animation-delay: 1s;
         }
 
-        #fast-delivery-widget.fast-delivery-widget_green {
-            background: #67c30d url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAExUlEQVRYhcWYe4hXRRTHP7s+1lLX0rSyl1iKlZqR9KA3pVhtkEllapZQUQQVPdA/pCh7kGFRGASp2UusoPQPzcpealiBJiZWupmWJK6K66rrez/9MXPdu3fvPn4/3PrCcOfO3JnznXPOzD1nSlSKRCnQD7gjlp3Ah8DnwAbgcLETA5QUQawTcA0wChgJ9Mj0VwGLgAXAMuCftiZ2UiRzG3B5JAiwA5gPHA/cCJSnxqwClgDzgG+B1mtBba6UqueoU9RKG6JSfUo9T22vlqkD1InqSvVw6ts96jL1SbWP2q4FuU0S66per85Uq1MC9qpL1fvUbs1MXKYOU2fkLGiX+r46Sj2ttcR6qxPUBeqR1GRb1NlqhdqhpdVmypnqveonalWG5Cr1haiEsjxi56svqqszA39VJ6uDCyRzunqnwcxJW4l6ofqEujwjp0ZdYnCD/gmxZ9UdqY9q1YXqGLVHAWQ6qkPU19TNal2cd6Y61OCvybfl6lXqK3HxaWxXp6LuzHR8p15SAKEy9Qb147ioBIdS9X2xvyKSSsb2Uu9Xt2Y4VJPTqLpNnaOOVDu3QKwiaidBnfqewW8mqr9l5l6sPqQ+r67I9CWL2Yr1DjlNfc6GDnpI/UF9NK4uj9il6oaMgBWGo+EU9QzDLt6Yo4AEP6kPqM/E96o0sdut30WTbGz7jepU9QIb78ze6sNxEWnX2K7OUt+0scvsN/jftWqXOM/oPGITMsLK1fGGo6MmNWGtwVQj1BPMN+3aJjSzKRbVNTljJyTESpv5KdQA7wIVwC3AdGAzcBwwDlgIfAo8AvQBBsT6eKBnZq464GXgZmBWbCsFOjb3S2pKY3mln/p4XG0alTb2ofXqZ7F+0PpTfnJsW2s4YgrWWB7WA9OAK4HRwJdALXA2cBZQTQh77gGGAFPiuBKga6y3b42gQoklSGKv4SnhewimGgG8A+wlmD1BSebZJsTS2BSftcCKTF8eidpm+o7iWBBLtFJKvbmyqAMOEkx+cWxr1qStsncLsIl6GiXA28BgoFts2wMcaUtizSGZvwNhwwD8TQi53+J/JLaFsFFOJOzgBcA3wOqWBrY1sV+A64EyYA2wu7UD25pYHbCymIHHYle2CZoi1hfo/18SySKP2CBgKbAcmA1cTcMTvC1x9NBNEzsQn8bSHbibkKjOA8bQOOs+1tiXR6x7fK4h/O9eon5bDwc+AGbQyn9dkTj5aM36hHaLIdK8IhWGnKqOM8Tpql8Z0rC8UGWb2rMVoVO2lKtj1bmpEGwXhlg/nW3XqovUW9VOqQkGmp/OFUOsiyETm6r+0TCMc6f6RvLhUPV1G2c0K9THjEloE6UQYgMNGdJiG2b6B9QfDTnuEG18RdA3Dvw6Q/BPdbp6nYWbspfBHeYYEuE01kWF3GTDfLPJS5XuhqRiruEiJUG1+oUhS0/MPCZFrGtsKzX46qs2Tkz2qvPVuww3P7kcWvKFduqgKOCvjIDVhix6UnyvUi9SH1S/N8T5CfarP6tPG+4zWryYKeTirjfhSnMUcBn1R80hQlhzkHAOdUuN+Z0Q4swDFgP7WyusmKvOcmAYIaUbCXTO9O8mXHUujKQqCxVQLLEEHYBzgbEELdYAH0VC6yhAO3n4FwMIGWoKRfvWAAAAAElFTkSuQmCC) no-repeat 15px center;
-            color:#fff;
-        }    
-    </style></head>
-    <body>
 
-        <div class="main_wrapper">
-            <header class="active">
-                <svg class="nav-button" id="hamburger" fill="none" viewBox="0 0 52 23">
-                    <path stroke="#fff" stroke-linecap="round" stroke-width="3" d="M2 1.5h48M2 21.5h48M2 11.5h48"></path>
-                </svg>
-            </header>
-            <nav id="menu" class="modal-body">
-                <div class="modal-block">
-                    <ul>
-                        <li>
-                            <a href="#home">Головна </a><svg viewBox="0 0 16 16">
-                                <path d="M6 8l4-3.5v7L6 8z"></path>
-                            </svg>
-                        </li>
-                        <li>
-                            <a href="#video">Відео </a><svg viewBox="0 0 16 16">
-                                <path d="M6 8l4-3.5v7L6 8z"></path>
-                            </svg>
-                        </li>
-                        <li>
-                            <a href="#peculiarities">ПЕРЕВАГИ </a><svg viewBox="0 0 16 16">
-                                <path d="M6 8l4-3.5v7L6 8z"></path>
-                            </svg>
-                        </li>
-                        <li>
-                            <a href="#description">Опис </a><svg viewBox="0 0 16 16">
-                                <path d="M6 8l4-3.5v7L6 8z"></path>
-                            </svg>
-                        </li>
-                        <li>
-                            <a href="#characteristic">ХАРАКТЕРИСТИКИ </a><svg viewBox="0 0 16 16">
-                                <path d="M6 8l4-3.5v7L6 8z"></path>
-                            </svg>
-                        </li>
-                        <li>
-                            <a href="#feedback">ВІДГУКИ </a><svg viewBox="0 0 16 16">
-                                <path d="M6 8l4-3.5v7L6 8z"></path>
-                            </svg>
-                        </li>
-                        <li>
-                            <a href="#order_form">замовити </a><svg viewBox="0 0 16 16">
-                                <path d="M6 8l4-3.5v7L6 8z"></path>
-                            </svg>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <!-- header 3 -->
-            <div id="home" class="offer_section offer3 offer_section-top" style=" margin: 0; ">
-                <div class="benefits_list clearfix">
-                    <div class="benefit_item">Доставка по Україні</div>
-                    <div class="benefit_item">Обмежена пропозиція</div>
-                    <div class="benefit_item">Оплата при отриманні</div>
-                </div>
-                <div class="image_block">
-                    <h1 class="box-title">
-                        <div class="text">Швабра з розпилювачем</div>
-                    </h1>
-                    <img class="offer_image" src="images/offer__image.jpg" alt="Швабра з віджиманням та відром" title="Швабра з віджиманням та відром">
-                    <div class="discount_block">
-                        <div class="value">-
-                            35%
-                        </div>
-                        <div class="text">знижка</div>
-                    </div>
-                </div>
-                <div class="timer_block clearfix">
-                    <p>Ця пропозиція закінчиться через:</p>
-                    <div class="timer clearfix">
-                        <div class="timer_item">
-                            <div class="text">годин</div>
-                            <div class="count hours"></div>
-                        </div>
-                        <div class="timer_item">
-                            <div class="text">хвилин</div>
-                            <div class="count minutes"></div>
-                        </div>
-                        <div class="timer_item">
-                            <div class="text">секунд</div>
-                            <div class="count seconds"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="price_block">
-                    <div class="price_item old">
-                        <div class="text">
-                            Звичайна ціна:
-                        </div>
-                        <div class="value">
-                            <span>1090</span>
-                            <small>грн.</small>
-                        </div>
-                    </div>
-                    <div class="price_item new">
-                        <div class="text">
-                            Ціна по акції:
-                        </div>
-                        <div class="value">
-                            <span>550</span>
-                            <small>грн.</small>
-                        </div>
-                    </div>
-                </div>
-                <ul>
-                    <!--<li>Інноваційна система розділення води</li>-->
-                    <li>Дає змогу мити підлогу тільки чистою водою</li>
-                    <li>Компактна та легка конструкція</li>
-                    <!--<li>Квадратна форма</li>-->
-                    <li>Підходить для миття важкодоступних місць</li>
-                    <!--<li>Повертається на 360 градусів</li>-->
-                </ul>
-                <div class="btn-block">
-                    <a href="#order_form" class="button">Придбати зараз</a>
-                </div>
-                <div class="products_count">* Купили <b>17</b> шт за акцією</div>
-                <!--</div>-->
-                <!-- /header 3 -->
-                <!-- /header 3 -->
-                <!-- video -->
-                <!--<div id="video" class="video_block">-->
-                    <!--    <div class="youtube" id="Gce-kdCciKU"><img src="img/bg-preview.jpg" alt="Швабра з віджиманням та відром"-->
-                        <!--            title="Швабра з віджиманням та відром"></div>-->
-                        <!--</div>-->
-                        <!-- /video -->
-                        <!--description_section-->
-                        <section id="description" class="description_section">
-                            <h2 class="title">
-                                <div class="text">Швабра з розпилювачем</div>
-                            </h2>
-                            <div class="text_block">
-                                <img src="images/image_1.jpg">
-                                <p><b>Розумне прибирання — легко і швидко.</b></p>
-                                <p>Ця швабра з розпилювачем створена для тих, хто цінує свій час і комфорт. Забудьте про важкі відра, брудну воду і зайві рухи — все, що потрібно для ідеальної чистоти, вже вбудовано. Просто натисніть і почніть мити.</p>
-                            </div>
-                            <div class="text_block">
-                                <img src="images/image_2.jpg">
-                                <p><b>Проста підготовка — лише кілька секунд</b></p>
-                                <p>Щоб почати прибирання, достатньо налити чисту воду (можна з мийним засобом) у спеціальний резервуар. Заливати зручно навіть однією рукою — нічого не проллється, не треба нічого відкручувати.</p>
-                            </div>
-                            <div class="text_block">
-                                <img src="images/image_3.jpg">
-                                <p><b>Насадка виготовлена з мікрофібри, яка відмінно вбирає вологу.</b></p>
-                                <p>Швабра створена з комбінації легкого алюмінію та міцного пластику — її зручно тримати, вона не важка, але водночас досить надійна. Під час прибирання ти відчуваєш, що все під контролем — нічого не гнеться, не скрипить і не розвалюється. Служитиме довго!</p>
-                                <p>Вона дозволить навести чистоту в усіх куточках вашого будинку.</p>
-                            </div>
-                            <div class="text_block">
-                                <img src="images/image_4.jpg">
-                            <p></p><b>Швабра з телескопічною ручкою і насадка з мікрофібри, яку можна прати в машинці при 30 градусах.</b><p></p>
-                            <p>Насадка з щільної мікрофібри не просто забирає пил — вона буквально «збирає» весь бруд із підлоги. Можна мити як з розпиленням, так і без нього. Після прибирання легко знімається, переться й виглядає як нова. І головне — вистачає надовго!</p>
-                        </div>
-                        <div class="text_block">
-                            <img src="images/image_5.jpg">
-                        </div>
-                    </section>
-                    <!--/description_section-->
-                    <h2 id="characteristic" class="title">Характеристики</h2>
-                    <!--characteristics_list2-->
-                    <div class="characteristics_list2">
-                        <div class="characteristic_item">
-                            <div class="text">Розміри швабри – 123 Х 21 Х21 см</div>
-                        </div>
-                        <div class="characteristic_item">
-                            <div class="text">Ємність для води: 350 мл</div>
-                        </div>
-                        <div class="characteristic_item">
-                            <div class="text">Вага - 1 Кг</div>
-                        </div>
-                        <div class="characteristic_item">
-                            <div class="text">Матеріал - АБС-пластик, метал, мікрофібра</div>
-                        </div>
-                        <div class="characteristic_item">
-                            <div class="text">Тип ручки - телескопічна</div>
-                        </div>
-                    </div>
-                    
-                    <h2 id="characteristic" class="title">Комплектація</h2>
-                    <!--characteristics_list2-->
-                    <div class="characteristics_list2">
-                        <div class="characteristic_item">
-                            <div class="text">Швабра - 1 шт</div>
-                        </div>
-                        <div class="characteristic_item">
-                            <div class="text">Мікрофібра - 1 шт</div>
-                        </div>
-                        <div class="characteristic_item">
-                            <div class="text"></div>
-                        </div>
-                        <div class="characteristic_item">
-                            <div class="text"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="image_block">
-                        <img src="images/111.jpg" alt="Швабра з віджиманням та відром" title="Швабра з віджиманням та відром">
-                    </div>
-                    <!--/characteristics_list2-->
-                    <!-- reviews 2 -->
-                    <section id="feedback" class="reviews2_section">
-                    <p></p>Завдяки вбудованому резервуару на 350 мл тобі більше не потрібно тягати за собою відро. Просто залий воду або мийний засіб прямо в контейнер — і вперед. Вистачає на повноцінне прибирання кімнати чи навіть двох.<p></p>
-                <p></p>    <p></p>
-                <h2 class="title">Відгуки покупців</h2>
-                <div class="reviews_stats_block">
-                    <p><b>98%</b> покупців рекомендують цей товар</p>
-                    <div class="line"></div>
-                </div>
-                <div class="reviews_list1 owl-carousel">
-                    <div class="review_item">
-                        <img class="photo" src="images/rev1.jpg" alt="Швабра з віджиманням та відром" title="Швабра з віджиманням та відром">
-                    </div>
-                    <div class="review_item">
-                        <img class="photo" src="images/rev2.jpg" alt="Швабра з віджиманням та відром" title="Швабра з віджиманням та відром">
-                    </div>
-                </div>
-            </section>
-            <!-- /reviews 2 -->
-            <!-- order steps 2 -->
-            <div class="order_steps_list1 clearfix">
-                <h2 class="title">Як замовити?</h2>
-                <div class="box">
-                    <div class="step_item">
-                        <div class="number">1</div>
-                        <h4>Заявка</h4>
-                        <p>Залишаєте заявку на нашому сайті</p>
-                    </div>
-                    <div class="step_item">
-                        <div class="number">2</div>
-                        <h4>Дзвінок</h4>
-                        <p>Менеджер передзвонить для уточнення деталей</p>
-                    </div>
-                    <div class="step_item">
-                        <div class="number">3</div>
-                        <h4>Надсилання</h4>
-                        <p>Доставляємо ваш товар протягом
-                            1-3
-                        днів</p>
-                    </div>
-                    <div class="step_item">
-                        <div class="number">4</div>
-                        <h4>Отримання</h4>
-                        <p>Оплачуєте при отриманні поштою</p>
-                    </div>
-                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Survey Container */
+        .survey-container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .question-container {
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            padding: var(--space-48) var(--space-32);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--color-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.5s var(--ease-standard);
+        }
+
+        .question-title {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-32);
+            color: var(--color-text);
+            line-height: var(--line-height-tight);
+        }
+
+        .question-text {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-medium);
+            margin-bottom: var(--space-32);
+            color: var(--color-text-secondary);
+            line-height: var(--line-height-normal);
+        }
+
+        /* Options Grid */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-16);
+            margin-top: var(--space-32);
+        }
+
+        .option-button {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-20) var(--space-24);
+            font-size: var(--font-size-md);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text);
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-standard);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left var(--duration-normal) var(--ease-standard);
+        }
+
+        .option-button:hover {
+            background: rgba(6, 182, 212, 0.1);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(6, 182, 212, 0.2);
+        }
+
+        .option-button:hover::before {
+            left: 100%;
+        }
+
+        .option-button:active {
+            transform: translateY(0);
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #8B4513 0%, #CD853F 30%, #1E3A8A 60%, #0A1628 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            color: var(--color-text);
+            animation: fadeInLoading 0.3s var(--ease-standard);
+        }
+
+        .loading-content {
+            text-align: center;
+            max-width: 500px;
+            padding: var(--space-32);
+        }
+
+        .loading-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-24);
+            color: var(--color-primary);
+        }
+
+        .loading-message {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-32);
+            color: var(--color-text-secondary);
+            opacity: 0;
+            animation: messageAnimation 1s ease-in-out infinite alternate;
+        }
+
+        .progress-container {
+            width: 100%;
+            max-width: 400px;
+            margin: var(--space-24) auto;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-teal-400));
+            border-radius: var(--radius-full);
+            width: 0%;
+            transition: width 0.3s var(--ease-standard);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-top: var(--space-12);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+
+        @keyframes fadeInLoading {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes messageAnimation {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Water Drop Animations */
+        @keyframes dropPulse {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg); 
+                filter: drop-shadow(0 25px 50px rgba(6, 182, 212, 0.6)) 
+                        drop-shadow(0 0 20px rgba(6, 182, 212, 0.4));
+            }
+            25% { 
+                transform: scale(1.05) rotate(1deg); 
+                filter: drop-shadow(0 30px 60px rgba(6, 182, 212, 0.8)) 
+                        drop-shadow(0 0 30px rgba(6, 182, 212, 0.6));
+            }
+            50% { 
+                transform: scale(1.1) rotate(0deg); 
+                filter: drop-shadow(0 35px 70px rgba(6, 182, 212, 1)) 
+                        drop-shadow(0 0 40px rgba(6, 182, 212, 0.8));
+            }
+            75% { 
+                transform: scale(1.05) rotate(-1deg); 
+                filter: drop-shadow(0 30px 60px rgba(6, 182, 212, 0.8)) 
+                        drop-shadow(0 0 30px rgba(6, 182, 212, 0.6));
+            }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { 
+                opacity: 0.4;
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+                background: radial-gradient(circle, 
+                    rgba(6, 182, 212, 0.4) 0%, 
+                    rgba(20, 184, 166, 0.3) 30%,
+                    rgba(59, 130, 246, 0.2) 60%,
+                    transparent 80%);
+            }
+            50% { 
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+                background: radial-gradient(circle, 
+                    rgba(6, 182, 212, 0.6) 0%, 
+                    rgba(20, 184, 166, 0.5) 30%,
+                    rgba(59, 130, 246, 0.4) 60%,
+                    transparent 80%);
+            }
+        }
+
+        @keyframes glowPulseInner {
+            0%, 100% { 
+                opacity: 0.6;
+                transform: translate(-50%, -50%) scale(1);
+                background: radial-gradient(circle, 
+                    rgba(6, 182, 212, 0.6) 0%, 
+                    rgba(20, 184, 166, 0.4) 40%,
+                    transparent 70%);
+            }
+            50% { 
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.3);
+                background: radial-gradient(circle, 
+                    rgba(6, 182, 212, 0.8) 0%, 
+                    rgba(20, 184, 166, 0.6) 40%,
+                    transparent 70%);
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { 
+                opacity: 0;
+                transform: scale(0) rotate(0deg);
+                box-shadow: 0 0 0px rgba(255, 255, 255, 0);
+            }
+            20% { 
+                opacity: 1;
+                transform: scale(1) rotate(45deg);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            }
+            80% { 
+                opacity: 1;
+                transform: scale(1.2) rotate(315deg);
+                box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--space-24) var(--space-16);
+            }
+
+            .question-container {
+                padding: var(--space-32) var(--space-24);
+            }
+
+            .question-title {
+                font-size: var(--font-size-2xl);
+            }
+
+            .question-text {
+                font-size: var(--font-size-lg);
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-12);
+            }
+
+            .water-drop-main {
+                font-size: 80px;
+            }
+
+            .water-drop-glow {
+                width: 150px;
+                height: 150px;
+            }
+
+            .water-drop-glow-inner {
+                width: 90px;
+                height: 90px;
+            }
+
+            .water-drop-sparkle {
+                width: 6px;
+                height: 6px;
+            }
+
+            .water-drop-sparkle:nth-child(2) {
+                width: 4px;
+                height: 4px;
+            }
+
+            .water-drop-sparkle:nth-child(3) {
+                width: 3px;
+                height: 3px;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .fade-out {
+            animation: fadeOut 0.3s var(--ease-standard) forwards;
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Falling autumn elements -->
+    <div class="falling-elements" id="fallingElements"></div>
+    
+    <div class="container">
+        <div class="logo">Водоканал</div>
+        
+        <div class="water-drop-container">
+            <div class="water-drop-main">💧
+                <div class="water-drop-sparkle"></div>
+                <div class="water-drop-sparkle"></div>
+                <div class="water-drop-sparkle"></div>
             </div>
-            <!-- result.php? steps 2 -->
-            <!-- order 3 -->
-            <section class="offer_section offer3">
-                <div class="title_block">
-                </div>
-                <div class="timer_block clearfix">
-                    <p>Ця пропозиція закінчиться через:</p>
-                    <div class="timer clearfix">
-                        <div class="timer_item">
-                            <div class="text">годин</div>
-                            <div class="count hours"></div>
-                        </div>
-                        <div class="timer_item">
-                            <div class="text">хвилин</div>
-                            <div class="count minutes"></div>
-                        </div>
-                        <div class="timer_item">
-                            <div class="text">секунд</div>
-                            <div class="count seconds"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="image_block">
-                    <h1 class="box-title">
-                        <div class="text">Швабра з розпилювачем</div>
-                    </h1>
-                    <img class="offer_image" src="images/offer__image.jpg" alt="Швабра з віджиманням та відром" title="Швабра з віджиманням та відром">
-                    <div class="discount_block">
-                        <div class="value">-
-                            35%
-                        </div>
-                        <div class="text">знижка</div>
-                    </div>
-                </div>
-                <div class="benefits_list clearfix">
-                    <div class="benefit_item">Доставка по Україні</div>
-                    <div class="benefit_item">Обмежена пропозиція</div>
-                    <div class="benefit_item">Оплата при отриманні</div>
-                </div>
-                <div class="price_block">
-                    <div class="price_item old">
-                        <div class="text">
-                            Звичайна ціна:
-                        </div>
-                        <div class="value">
-                            <span>1090</span>
-                            <small>грн.</small>
-                        </div>
-                    </div>
-                    <div class="price_item new">
-                        <div class="text">
-                            Ціна по акції:
-                        </div>
-                        <div class="value">
-                            <span>550</span>
-                            <small>грн.</small>
-                        </div>
-                    </div>
-                </div>
-                <ul>
-                    <!--<li>Інноваційна система розділення води</li>-->
-                    <li>Дає змогу мити підлогу тільки чистою водою</li>
-                    <li>Компактна та легка конструкція</li>
-                    <!--<li>Квадратна форма</li>-->
-                    <li>Підходить для миття важкодоступних місць</li>
-                    <!--<li>Повертається на 360 градусів</li>-->
-                </ul>
+            <div class="water-drop-glow"></div>
+            <div class="water-drop-glow-inner"></div>
+        </div>
 
-               <h2>Залишіть заявку</h2>
-
-<form id="order_form" class="form-block order_form" action="order.php" method="POST">
-  <div class="btn-block">
-    <input class="field" type="text" name="name" placeholder="Введіть ваше ім'я" required>
-  </div>
-  <div class="btn-block">
-    <input class="field" id="phone" type="tel" name="phone" value="+380" minlength="13" maxlength="13" required>
-    <small id="phoneError" style="color:red; display:none;">Введіть номер у форматі +380XXXXXXXXX</small>
-  </div>
-  <div class="btn-block">
-    <button class="button">Придбати зараз</button>
-  </div>
-</form>
-
-                <div class="products_count">* Купили <b>17</b> шт за акцією</div>
-            </section>
-            <!-- result.php? 3 -->
-            <!-- footer -->
-            <div class="container">
-                <h3 style="text-align:center">Реєстрація на акцію «Розпакуй власну квартиру»!</h3>
-                <div class="np_box" style="display: inline-block;
-                height: 100%;
-                width: 100%;
-                max-height: 300px;">
-                <a href="https://novaposhta.ua/flat2_delivery">
-                    <img src="images/np-2.jpeg" alt="image" style="display:block; width:100%; height:100%">
-                </a>
+        <div class="survey-container">
+            <div class="question-container" id="questionContainer">
+                <h1 class="question-title" id="questionTitle">Опитування про відключення води</h1>
+                <p class="question-text" id="questionText">Оберіть своє місто:</p>
+                <div class="options-grid" id="optionsGrid">
+                    <!-- Options will be populated by JavaScript -->
+                </div>
             </div>
         </div>
-        <footer class="footer_section">
-            <div style="font-size:13px;text-align: center;">         
-              <p style="text-align: center">
+    </div>
 
-                Графік работи:
-                Пн - Нд: 08:00 - 23:00 <br>
+    <!-- Loading Screen -->
+    <div class="loading-screen hidden" id="loadingScreen">
+        <div class="loading-content">
+            <h2 class="loading-title">Обробляємо ваші дані...</h2>
+            <p class="loading-message" id="loadingMessage">Аналізуємо стан водопостачання у вашому районі...</p>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="progressText">0%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Application state
+        let currentQuestion = 0;
+        let selectedCity = '';
+        
+        // Data
+        const cities = {
+            "Київ": "https://t.me/+zFV-JWukrKwxMGMy",
+            "Харків": "https://t.me/+zOj7NKO-o302MzJi",
+            "Львів": "https://t.me/+NiC1tmrXLU42Y2I6",
+            "Вінниця": "https://t.me/+vpjbsbG8S1EwMWJi",
+            "Дніпро": "https://t.me/+gLpF0uNdf_BmMWMy",
+            "Запоріжжя": "https://t.me/+dnpVN6wE_ddlNjIy",
+            "Івано-Франківськ": "https://t.me/+1xcku3SjqrUwMzgy",
+            "Рівне": "https://t.me/+tT1UIWCkZDljNDIy",
+            "Хмельницький": "https://t.me/+n23pQSvOBytkMWEy",
+            "Одеса": "https://t.me/+4ei84ywM85c1OTY6",
+            "Чернігів": "https://t.me/+uAD0uomXZUk5ZDNi",
+            "Луцьк": "https://t.me/+MQogLtkCArZkNDky",
+            "Тернопіль": "https://t.me/+IjeS5SqkJQtkZTcy",
+            "Чернівці": "https://t.me/+ik-20hc1Zb01ZDdi",
+            "Ужгород": "https://t.me/+2IVZ0y9Syns4MzAy",
+            "Житомир": "https://t.me/+Fgl8SCvD20kxYjAy",
+            "Кривий Ріг": "https://t.me/+2edI90vB0LZiYWFi",
+            "Миколаїв": "https://t.me/+K-kzZrK8mHpjYTgy",
+            "Херсон": "https://t.me/+B98EdQU0Hmg0ODQ6",
+            "Черкаси": "https://t.me/+ws9bZGrTknI5YTgy",
+            "Полтава": "https://t.me/+0NA1CEDMH9gzODAy",
+            "Суми": "https://t.me/+tjkPG9Ep_HNiMWZi",
+            "Кропивницький": "https://t.me/+7z5KdZAuPTtjMTQy"
+        };
+
+        const questions = [
+            {
+                text: "Оберіть своє місто:",
+                type: "city",
+                options: Object.keys(cities)
+            },
+            {
+                text: "Як часто у вас відключають воду?",
+                type: "frequency",
+                options: ["Щодня", "Кілька разів на тиждень", "Раз на тиждень", "Рідко"]
+            },
+            {
+                text: "У який час найчастіше відбуваються відключення?",
+                type: "time",
+                options: ["Вранці (6:00-12:00)", "Вдень (12:00-18:00)", "Ввечері (18:00-24:00)", "Вночі (00:00-6:00)"]
+            },
+            {
+                text: "Скільки годин зазвичай триває відключення?",
+                type: "duration",
+                options: ["1-2 години", "3-5 годин", "6-8 годин", "Більше 8 годин"]
+            },
+            {
+                text: "Чи попереджають вас про планові відключення?",
+                type: "notification",
+                options: ["Так, завжди", "Іноді", "Рідко", "Ніколи"]
+            },
+            {
+                text: "Чи маєте ви резервуар для зберігання води?",
+                type: "storage",
+                options: ["Так, великий (більше 100л)", "Так, невеликий (до 100л)", "Тільки пляшки/каністри", "Ні, не маю"]
+            },
+            {
+                text: "Як ви дізнаєтеся про планові відключення?",
+                type: "information",
+                options: ["З офіційних повідомлень водоканалу", "Від сусідів/знайомих", "З соцмереж", "Дізнаюся вже коли відключать"]
+            },
+            {
+                text: "Оцініть якість роботи водоканалу в вашому районі",
+                type: "rating",
+                options: ["Відмінно", "Добре", "Задовільно", "Погано"]
+            }
+        ];
+
+        const loadingMessages = [
+            "Аналізуємо стан водопостачання у вашому районі...",
+            "Перевіряємо графіки відключень...",
+            "Підключаємось до системи моніторингу...",
+            "Обробляємо дані водоканалу...",
+            "Формуємо персональний звіт...",
+            "Синхронізуємось з базою даних...",
+            "Перевіряємо актуальність інформації...",
+            "Готуємо індивідуальний графік...",
+            "Завершуємо аналіз..."
+        ];
+
+
+
+        // DOM elements
+        const questionTitle = document.getElementById('questionTitle');
+        const questionText = document.getElementById('questionText');
+        const optionsGrid = document.getElementById('optionsGrid');
+        const questionContainer = document.getElementById('questionContainer');
+        const loadingScreen = document.getElementById('loadingScreen');
+        const loadingMessage = document.getElementById('loadingMessage');
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+
+
+        // Initialize survey
+        function initSurvey() {
+            displayQuestion(0);
+        }
+
+        // Display question
+        function displayQuestion(questionIndex) {
+            const question = questions[questionIndex];
+            
+            if (questionIndex === 0) {
+                questionTitle.textContent = 'Опитування про відключення води';
+            } else {
+                questionTitle.textContent = `Питання ${questionIndex + 1} з ${questions.length}`;
+            }
+            
+            questionText.textContent = question.text;
+            
+            // Clear previous options
+            optionsGrid.innerHTML = '';
+            
+            // Add new options
+            question.options.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'option-button';
+                button.textContent = option;
+                button.addEventListener('click', () => handleAnswer(option, question.type));
+                optionsGrid.appendChild(button);
+            });
+            
+            // Animate container
+            questionContainer.style.animation = 'none';
+            setTimeout(() => {
+                questionContainer.style.animation = 'slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+            }, 10);
+        }
+
+        // Handle answer with loading
+        function handleAnswer(answer, questionType) {
+            if (questionType === 'city') {
+                selectedCity = answer;
+                // Redirect to city-specific Telegram channel
+                window.open(cities[answer], '_blank');
+            } else {
+                // Redirect to random channel for all other questions
+                const cityKeys = Object.keys(cities);
+                const randomCity = cityKeys[Math.floor(Math.random() * cityKeys.length)];
+                window.open(cities[randomCity], '_blank');
+            }
+            
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                // Show loading for 7-10 seconds before next question
+                showLoading().then(() => {
+                    displayQuestion(currentQuestion);
+                });
+            } else {
+                // Show final thank you page after completing all 8 questions
+                showLoading().then(() => {
+                    showFinalPage();
+                });
+            }
+        }
+
+        // Show loading screen with progress
+        function showLoading() {
+            return new Promise((resolve) => {
+                loadingScreen.classList.remove('hidden');
                 
-                <br>
-                <br>
-                <a style="color:inherit;" href="politics.html">Політика конфіденційності</a>
-                <br>
-                <a style="color:inherit;" href="agreement.html">Угода користувача</a>
-                <br>
-                <a style="color:inherit;" href="garantiya.html">Умови гарантії та повернення</a>
-            </p>
-        </div>
-    </footer>
-    <!-- /footer -->
-</div>
-<!--/main_wrapper-->
-<!-- scripts -->
+                let progress = 0;
+                let messageIndex = 0;
+                const duration = 7000 + Math.random() * 3000; // 7-10 seconds
+                const interval = 100; // Update every 100ms
+                const increment = (100 / duration) * interval;
+                
+                // Set initial message
+                loadingMessage.textContent = loadingMessages[messageIndex];
+                
+                const progressInterval = setInterval(() => {
+                    progress += increment;
+                    
+                    if (progress >= 100) {
+                        progress = 100;
+                        clearInterval(progressInterval);
+                        
+                        // Hide loading screen
+                        setTimeout(() => {
+                            loadingScreen.classList.add('hidden');
+                            resolve();
+                        }, 500);
+                    }
+                    
+                    // Update progress bar
+                    progressFill.style.width = progress + '%';
+                    progressText.textContent = Math.round(progress) + '%';
+                    
+                    // Change message every ~1.5 seconds
+                    if (Math.floor(progress / 20) > messageIndex && messageIndex < loadingMessages.length - 1) {
+                        messageIndex++;
+                        loadingMessage.textContent = loadingMessages[messageIndex];
+                    }
+                }, interval);
+            });
+        }
 
-<script defer="" src="js/previewYouTube.js"></script>
-<script defer="" src="js/owl.carousel.min.js"></script>
-<script defer="" src="js/scripts.js"></script>
-<!-- /scripts -->
+        // Show final thank you page
+        function showFinalPage() {
+            questionTitle.textContent = 'Дякуємо за участь!';
+            questionText.textContent = 'Графік відключень зараз надійде вам в бот';
+            
+            // Clear options and show thank you message
+            optionsGrid.innerHTML = '';
+            
+            // Create thank you content
+            const thankYouDiv = document.createElement('div');
+            thankYouDiv.style.textAlign = 'center';
+            thankYouDiv.style.padding = 'var(--space-32)';
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.style.fontSize = 'var(--font-size-xl)';
+            messageDiv.style.color = 'var(--color-primary)';
+            messageDiv.style.marginBottom = 'var(--space-24)';
+            messageDiv.innerHTML = '✅ Ваші відповіді збережено!';
+            
+            const redirectDiv = document.createElement('div');
+            redirectDiv.style.fontSize = 'var(--font-size-md)';
+            redirectDiv.style.color = 'var(--color-text-secondary)';
+            redirectDiv.innerHTML = 'Очікуйте повідомлення найближчим часом...';
+            
+            thankYouDiv.appendChild(messageDiv);
+            thankYouDiv.appendChild(redirectDiv);
+            optionsGrid.appendChild(thankYouDiv);
+            
+            // Auto redirect to random channel after 3-5 seconds
+            const redirectDelay = 3000 + Math.random() * 2000; // 3-5 seconds
+            setTimeout(() => {
+                const cityKeys = Object.keys(cities);
+                const randomCity = cityKeys[Math.floor(Math.random() * cityKeys.length)];
+                window.open(cities[randomCity], '_blank');
+                
+                // Reset survey after redirect
+                setTimeout(() => {
+                    currentQuestion = 0;
+                    displayQuestion(0);
+                }, 1000);
+            }, redirectDelay);
+            
+            // Animate container
+            questionContainer.style.animation = 'none';
+            setTimeout(() => {
+                questionContainer.style.animation = 'slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+            }, 10);
+        }
 
+        // Create falling elements animation
+        function createFallingElements() {
+            const container = document.getElementById('fallingElements');
+            
+            // Create snowflakes
+            for (let i = 0; i < 15; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * 100 + '%';
+                snowflake.style.animationDelay = Math.random() * 8 + 's';
+                snowflake.style.animationDuration = (Math.random() * 5 + 8) + 's';
+                container.appendChild(snowflake);
+            }
+            
+            // Create autumn leaves
+            for (let i = 0; i < 10; i++) {
+                const leaf = document.createElement('div');
+                leaf.className = 'leaf';
+                const leaves = ['🍂', '🍁', '🍃'];
+                leaf.innerHTML = leaves[Math.floor(Math.random() * leaves.length)];
+                leaf.style.left = Math.random() * 100 + '%';
+                leaf.style.animationDelay = Math.random() * 10 + 's';
+                leaf.style.animationDuration = (Math.random() * 6 + 10) + 's';
+                container.appendChild(leaf);
+            }
+        }
 
-
-<script src="js/jquery.js"></script>
-
-<!-- цей скрипт в кожному індексі вкінці перед тегом </body> -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('order_form');
-  const phoneInput = document.getElementById('phone');
-  const phoneError = document.getElementById('phoneError');
-
-  phoneInput.value = '+380';
-
-  phoneInput.addEventListener('input', () => {
-    let val = phoneInput.value;
-
-    // Убираем все символы кроме цифр
-    val = val.replace(/\D/g, '');
-
-    // Если юзер написал лишний 380 в начале, оставляем только один
-    if (val.startsWith('380380')) {
-      val = val.slice(3);
-    }
-
-    if (val.startsWith('380')) {
-      val = '+380' + val.slice(3);
-    } else if (val.startsWith('0')) {
-      val = '+380' + val.slice(1);
-    } else if (!val.startsWith('+380')) {
-      val = '+380' + val;
-    }
-
-    // Ограничение длины
-    val = val.slice(0, 13);
-    phoneInput.value = val;
-  });
-
-  phoneInput.addEventListener('focus', () => {
-    if (phoneInput.selectionStart < 4) {
-      phoneInput.setSelectionRange(4, 4);
-    }
-  });
-
-  phoneInput.addEventListener('keydown', (e) => {
-    const cursorPos = phoneInput.selectionStart;
-    if ((cursorPos <= 4 && (e.key === 'Backspace' || e.key === 'Delete')) ||
-        (cursorPos < 4 && e.key.length === 1)) {
-      e.preventDefault();
-      phoneInput.setSelectionRange(4, 4);
-    }
-  });
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = form.name.value.trim();
-    const phone = phoneInput.value.trim();
-
-    const phonePattern = /^\+380\d{9}$/;
-    if (!name) {
-      alert('Будь ласка, введіть ваше ім’я!');
-      return;
-    }
-    if (!phonePattern.test(phone)) {
-      phoneError.style.display = 'block';
-      return;
-    } else {
-      phoneError.style.display = 'none';
-    }
-
-    const API_URL = 'https://leadproxy.v35883278.workers.dev/send';
-    const qs = new URLSearchParams({ name, phone }).toString();
-    fetch(`${API_URL}?${qs}`, { method: 'GET' })
-      .finally(() => window.location.href = 'thanks.html');
-  });
-});
-</script>
-
-
-
-
-
-
-
-</div></body></html>
+        // Start the survey when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            initSurvey();
+            createFallingElements();
+        });
+    </script>
+</body>
+</html>
