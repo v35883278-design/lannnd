@@ -2,1003 +2,530 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Водоканал - Опитування про відключення води</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Поїхали з нами | Premium Travel Club</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Шрифти -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Confetti Library for the Win Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
     <style>
         :root {
-            /* Primitive Color Tokens */
-            --color-white: rgba(255, 255, 255, 1);
-            --color-black: rgba(0, 0, 0, 1);
-            --color-cream-50: rgba(252, 252, 249, 1);
-            --color-cream-100: rgba(255, 255, 253, 1);
-            --color-gray-200: rgba(245, 245, 245, 1);
-            --color-gray-300: rgba(167, 169, 169, 1);
-            --color-gray-400: rgba(119, 124, 124, 1);
-            --color-slate-500: rgba(98, 108, 113, 1);
-            --color-brown-600: rgba(94, 82, 64, 1);
-            --color-charcoal-700: rgba(31, 33, 33, 1);
-            --color-charcoal-800: rgba(38, 40, 40, 1);
-            --color-slate-900: rgba(19, 52, 59, 1);
-            --color-teal-300: rgba(50, 184, 198, 1);
-            --color-teal-400: rgba(45, 166, 178, 1);
-            --color-teal-500: rgba(33, 128, 141, 1);
-            --color-teal-600: rgba(29, 116, 128, 1);
-            --color-teal-700: rgba(26, 104, 115, 1);
-            --color-teal-800: rgba(41, 150, 161, 1);
-            --color-red-400: rgba(255, 84, 89, 1);
-            --color-red-500: rgba(192, 21, 47, 1);
-            --color-orange-400: rgba(230, 129, 97, 1);
-            --color-orange-500: rgba(168, 75, 47, 1);
-
-            /* RGB versions for opacity control */
-            --color-brown-600-rgb: 94, 82, 64;
-            --color-teal-500-rgb: 33, 128, 141;
-            --color-slate-900-rgb: 19, 52, 59;
-            --color-slate-500-rgb: 98, 108, 113;
-            --color-red-500-rgb: 192, 21, 47;
-            --color-red-400-rgb: 255, 84, 89;
-            --color-orange-500-rgb: 168, 75, 47;
-            --color-orange-400-rgb: 230, 129, 97;
-
-            /* Background color tokens */
-            --color-bg-1: rgba(59, 130, 246, 0.08);
-            --color-bg-2: rgba(245, 158, 11, 0.08);
-            --color-bg-3: rgba(34, 197, 94, 0.08);
-            --color-bg-4: rgba(239, 68, 68, 0.08);
-            --color-bg-5: rgba(147, 51, 234, 0.08);
-            --color-bg-6: rgba(249, 115, 22, 0.08);
-            --color-bg-7: rgba(236, 72, 153, 0.08);
-            --color-bg-8: rgba(6, 182, 212, 0.08);
-
-            /* Water theme colors */
-            --water-blue-dark: #0A1628;
-            --water-blue-medium: #1E3A8A;
-            --water-blue-light: #3B82F6;
-            --water-cyan: #06B6D4;
-            --water-teal: #14B8A6;
-
-            /* Semantic Color Tokens */
-            --color-background: linear-gradient(135deg, var(--water-blue-dark) 0%, var(--water-blue-medium) 100%);
-            --color-surface: rgba(255, 255, 255, 0.1);
-            --color-text: var(--color-white);
-            --color-text-secondary: rgba(255, 255, 255, 0.8);
-            --color-primary: var(--water-cyan);
-            --color-primary-hover: var(--water-teal);
-            --color-primary-active: var(--color-teal-700);
-            --color-border: rgba(255, 255, 255, 0.2);
-
-            /* Typography */
-            --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            --font-size-xs: 11px;
-            --font-size-sm: 12px;
-            --font-size-base: 14px;
-            --font-size-md: 16px;
-            --font-size-lg: 18px;
-            --font-size-xl: 20px;
-            --font-size-2xl: 24px;
-            --font-size-3xl: 30px;
-            --font-size-4xl: 36px;
-            --font-weight-normal: 400;
-            --font-weight-medium: 500;
-            --font-weight-semibold: 600;
-            --font-weight-bold: 700;
-            --line-height-tight: 1.2;
-            --line-height-normal: 1.5;
-
-            /* Spacing */
-            --space-4: 4px;
-            --space-8: 8px;
-            --space-12: 12px;
-            --space-16: 16px;
-            --space-20: 20px;
-            --space-24: 24px;
-            --space-32: 32px;
-            --space-48: 48px;
-            --space-64: 64px;
-
-            /* Border Radius */
-            --radius-sm: 6px;
-            --radius-base: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-            --radius-full: 9999px;
-
-            /* Animation */
-            --duration-fast: 150ms;
-            --duration-normal: 300ms;
-            --duration-slow: 500ms;
-            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --gold-light: #FCEABB;
+            --gold-dark: #967036;
+            --gold-gradient: linear-gradient(135deg, #FCEABB 0%, #F8B500 50%, #FCEABB 100%);
+            --glass-bg: rgba(20, 20, 20, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         body {
-            font-family: var(--font-family-base);
-            background: linear-gradient(135deg, #8B4513 0%, #CD853F 30%, #1E3A8A 60%, #0A1628 100%);
-            color: var(--color-text);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #050505;
+            color: #fff;
+            overflow: hidden; /* Prevent scrolling during animations */
         }
 
-        /* Autumn background with falling elements */
-        .falling-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* --- Luxury Text & Gradients --- */
+        .text-gold {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(248, 181, 0, 0.3);
+        }
+        
+        .border-gold { border-color: #967036; }
+        .bg-gold { background: var(--gold-gradient); }
+
+        /* --- Glassmorphism Card --- */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
         }
 
-        .snowflake, .leaf {
+        /* --- Background Animation --- */
+        .bg-slideshow, .overlay-texture {
+            position: fixed; inset: 0; z-index: -2;
+        }
+        .overlay-texture {
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIiAvPgo8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiAvPgo8L3N2Zz4=');
+            z-index: -1; opacity: 0.3; pointer-events: none;
+        }
+        
+        .slide {
+            position: absolute; inset: 0;
+            background-size: cover; background-position: center;
+            opacity: 0; animation: fadeZoom 24s infinite;
+        }
+        .slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1920&auto=format&fit=crop'); animation-delay: 0s; } /* Luxury Hotel */
+        .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1512453979798-5ea904ac6605?q=80&w=1920&auto=format&fit=crop'); animation-delay: 6s; } /* Dubai */
+        .slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=1920&auto=format&fit=crop'); animation-delay: 12s; } /* Egypt Sphinx */
+        .slide:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1920&auto=format&fit=crop'); animation-delay: 18s; } /* Switzerland/Nature */
+
+        @keyframes fadeZoom {
+            0% { opacity: 0; transform: scale(1); }
+            5% { opacity: 1; }
+            25% { opacity: 1; }
+            30% { opacity: 0; transform: scale(1.1); }
+            100% { opacity: 0; }
+        }
+
+        /* --- Gold Particles --- */
+        .particle {
             position: absolute;
-            top: -10px;
-            color: rgba(255, 255, 255, 0.8);
-            user-select: none;
-            pointer-events: none;
-            animation: fall linear infinite;
+            background: #F8B500;
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatUp 15s infinite linear;
+            box-shadow: 0 0 10px #F8B500;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
         }
 
-        .leaf {
-            color: #CD853F;
+        /* --- Wheel Styles --- */
+        .wheel-outer-ring {
+            background: linear-gradient(to bottom, #cfc09f 0%,#634f2c 20%, #cfc09f 40%, #ffecb3 50%, #3a2c0f 100%); 
+            box-shadow: 0 0 15px 2px rgba(252, 234, 187, 0.4), inset 0 0 10px rgba(0,0,0,0.8);
         }
 
-        .snowflake:nth-child(odd) {
-            animation-duration: 8s;
-            font-size: 14px;
+        .wheel {
+            background: conic-gradient(
+                #1a1a1a 0deg 60deg, 
+                #2a2a2a 60deg 120deg, 
+                #1a1a1a 120deg 180deg, 
+                #2a2a2a 180deg 240deg, 
+                #1a1a1a 240deg 300deg, 
+                #2a2a2a 300deg 360deg
+            );
         }
 
-        .snowflake:nth-child(even) {
-            animation-duration: 12s;
-            font-size: 18px;
+        .segment-border {
+            position: absolute; top: 0; left: 50%; width: 2px; height: 50%;
+            background: linear-gradient(to bottom, rgba(248, 181, 0, 0.8), transparent);
+            transform-origin: bottom center;
         }
 
-        .leaf:nth-child(3n) {
-            animation-duration: 10s;
-            font-size: 16px;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-10vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(110vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: var(--space-32) var(--space-24);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .btn-glow {
             position: relative;
-        }
-
-        /* Logo */
-        .logo {
-            font-size: var(--font-size-4xl);
-            font-weight: var(--font-weight-bold);
-            color: var(--color-white);
-            margin-bottom: var(--space-48);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            -webkit-text-stroke: 2px var(--color-black);
-            text-stroke: 2px var(--color-black);
-            text-shadow: 
-                2px 2px 0px var(--color-black),
-                -2px -2px 0px var(--color-black),
-                2px -2px 0px var(--color-black),
-                -2px 2px 0px var(--color-black),
-                0px 2px 0px var(--color-black),
-                2px 0px 0px var(--color-black),
-                0px -2px 0px var(--color-black),
-                -2px 0px 0px var(--color-black);
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
-        }
-
-        /* Water Drop Animation */
-        .water-drop-container {
-            position: relative;
-            margin-bottom: var(--space-64);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-        }
-
-        .water-drop-main {
-            font-size: 120px;
-            position: relative;
-            animation: dropPulse 2s ease-in-out infinite;
-            filter: drop-shadow(0 25px 50px rgba(6, 182, 212, 0.6));
-            cursor: pointer;
+            overflow: hidden;
             transition: all 0.3s ease;
         }
-
-        .water-drop-main:hover {
-            transform: scale(1.1);
-            filter: drop-shadow(0 30px 60px rgba(6, 182, 212, 0.8));
-        }
-
-        /* Water drop glow effects */
-        .water-drop-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, 
-                rgba(6, 182, 212, 0.4) 0%, 
-                rgba(20, 184, 166, 0.3) 30%,
-                rgba(59, 130, 246, 0.2) 60%,
-                transparent 80%);
-            border-radius: 50%;
-            animation: glowPulse 3s ease-in-out infinite;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .water-drop-glow-inner {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 120px;
-            height: 120px;
-            background: radial-gradient(circle, 
-                rgba(6, 182, 212, 0.6) 0%, 
-                rgba(20, 184, 166, 0.4) 40%,
-                transparent 70%);
-            border-radius: 50%;
-            animation: glowPulseInner 2s ease-in-out infinite reverse;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .water-drop-sparkle {
-            position: absolute;
-            top: 20%;
-            left: 60%;
-            width: 8px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            animation: sparkle 1.5s ease-in-out infinite;
-            pointer-events: none;
-        }
-        
-        .water-drop-sparkle:nth-child(2) {
-            top: 40%;
-            left: 30%;
-            width: 6px;
-            height: 6px;
-            animation-delay: 0.5s;
-        }
-        
-        .water-drop-sparkle:nth-child(3) {
-            top: 60%;
-            left: 70%;
-            width: 4px;
-            height: 4px;
-            animation-delay: 1s;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /* Survey Container */
-        .survey-container {
-            width: 100%;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        .question-container {
-            background: var(--color-surface);
-            border-radius: var(--radius-xl);
-            padding: var(--space-48) var(--space-32);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--color-border);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            animation: slideIn 0.5s var(--ease-standard);
-        }
-
-        .question-title {
-            font-size: var(--font-size-3xl);
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--space-32);
-            color: var(--color-text);
-            line-height: var(--line-height-tight);
-        }
-
-        .question-text {
-            font-size: var(--font-size-xl);
-            font-weight: var(--font-weight-medium);
-            margin-bottom: var(--space-32);
-            color: var(--color-text-secondary);
-            line-height: var(--line-height-normal);
-        }
-
-        /* Options Grid */
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-16);
-            margin-top: var(--space-32);
-        }
-
-        .option-button {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: var(--space-20) var(--space-24);
-            font-size: var(--font-size-md);
-            font-weight: var(--font-weight-medium);
-            color: var(--color-text);
-            cursor: pointer;
-            transition: all var(--duration-normal) var(--ease-standard);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .option-button::before {
+        .btn-glow::after {
             content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left var(--duration-normal) var(--ease-standard);
+            position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg) translate(-100%, -100%);
+            animation: shimmer 3s infinite;
         }
-
-        .option-button:hover {
-            background: rgba(6, 182, 212, 0.1);
-            border-color: var(--color-primary);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(6, 182, 212, 0.2);
-        }
-
-        .option-button:hover::before {
-            left: 100%;
-        }
-
-        .option-button:active {
-            transform: translateY(0);
-        }
-
-        /* Loading Screen */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #8B4513 0%, #CD853F 30%, #1E3A8A 60%, #0A1628 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            color: var(--color-text);
-            animation: fadeInLoading 0.3s var(--ease-standard);
-        }
-
-        .loading-content {
-            text-align: center;
-            max-width: 500px;
-            padding: var(--space-32);
-        }
-
-        .loading-title {
-            font-size: var(--font-size-2xl);
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--space-24);
-            color: var(--color-primary);
-        }
-
-        .loading-message {
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--space-32);
-            color: var(--color-text-secondary);
-            opacity: 0;
-            animation: messageAnimation 1s ease-in-out infinite alternate;
-        }
-
-        .progress-container {
-            width: 100%;
-            max-width: 400px;
-            margin: var(--space-24) auto;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: var(--radius-full);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-teal-400));
-            border-radius: var(--radius-full);
-            width: 0%;
-            transition: width 0.3s var(--ease-standard);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: shimmer 2s infinite;
-        }
-
-        .progress-text {
-            text-align: center;
-            margin-top: var(--space-12);
-            font-size: var(--font-size-sm);
-            color: var(--color-text-secondary);
-        }
-
-        @keyframes fadeInLoading {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes messageAnimation {
-            0% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-
         @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            0% { transform: rotate(45deg) translate(-100%, -100%); }
+            20% { transform: rotate(45deg) translate(100%, 100%); }
+            100% { transform: rotate(45deg) translate(100%, 100%); }
         }
 
-        /* Water Drop Animations */
-        @keyframes dropPulse {
-            0%, 100% { 
-                transform: scale(1) rotate(0deg); 
-                filter: drop-shadow(0 25px 50px rgba(6, 182, 212, 0.6)) 
-                        drop-shadow(0 0 20px rgba(6, 182, 212, 0.4));
-            }
-            25% { 
-                transform: scale(1.05) rotate(1deg); 
-                filter: drop-shadow(0 30px 60px rgba(6, 182, 212, 0.8)) 
-                        drop-shadow(0 0 30px rgba(6, 182, 212, 0.6));
-            }
-            50% { 
-                transform: scale(1.1) rotate(0deg); 
-                filter: drop-shadow(0 35px 70px rgba(6, 182, 212, 1)) 
-                        drop-shadow(0 0 40px rgba(6, 182, 212, 0.8));
-            }
-            75% { 
-                transform: scale(1.05) rotate(-1deg); 
-                filter: drop-shadow(0 30px 60px rgba(6, 182, 212, 0.8)) 
-                        drop-shadow(0 0 30px rgba(6, 182, 212, 0.6));
-            }
+        /* --- Utility --- */
+        .modal-enter { animation: modalIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        
+        .pulse-slow { animation: pulseSlow 3s infinite; }
+        @keyframes pulseSlow {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(248, 181, 0, 0); }
+            50% { transform: scale(1.02); box-shadow: 0 0 30px rgba(248, 181, 0, 0.3); }
         }
 
-        @keyframes glowPulse {
-            0%, 100% { 
-                opacity: 0.4;
-                transform: translate(-50%, -50%) scale(1) rotate(0deg);
-                background: radial-gradient(circle, 
-                    rgba(6, 182, 212, 0.4) 0%, 
-                    rgba(20, 184, 166, 0.3) 30%,
-                    rgba(59, 130, 246, 0.2) 60%,
-                    transparent 80%);
-            }
-            50% { 
-                opacity: 0.8;
-                transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
-                background: radial-gradient(circle, 
-                    rgba(6, 182, 212, 0.6) 0%, 
-                    rgba(20, 184, 166, 0.5) 30%,
-                    rgba(59, 130, 246, 0.4) 60%,
-                    transparent 80%);
-            }
-        }
-
-        @keyframes glowPulseInner {
-            0%, 100% { 
-                opacity: 0.6;
-                transform: translate(-50%, -50%) scale(1);
-                background: radial-gradient(circle, 
-                    rgba(6, 182, 212, 0.6) 0%, 
-                    rgba(20, 184, 166, 0.4) 40%,
-                    transparent 70%);
-            }
-            50% { 
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1.3);
-                background: radial-gradient(circle, 
-                    rgba(6, 182, 212, 0.8) 0%, 
-                    rgba(20, 184, 166, 0.6) 40%,
-                    transparent 70%);
-            }
-        }
-
-        @keyframes sparkle {
-            0%, 100% { 
-                opacity: 0;
-                transform: scale(0) rotate(0deg);
-                box-shadow: 0 0 0px rgba(255, 255, 255, 0);
-            }
-            20% { 
-                opacity: 1;
-                transform: scale(1) rotate(45deg);
-                box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-            }
-            80% { 
-                opacity: 1;
-                transform: scale(1.2) rotate(315deg);
-                box-shadow: 0 0 15px rgba(255, 255, 255, 1);
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: var(--space-24) var(--space-16);
-            }
-
-            .question-container {
-                padding: var(--space-32) var(--space-24);
-            }
-
-            .question-title {
-                font-size: var(--font-size-2xl);
-            }
-
-            .question-text {
-                font-size: var(--font-size-lg);
-            }
-
-            .options-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-12);
-            }
-
-            .water-drop-main {
-                font-size: 80px;
-            }
-
-            .water-drop-glow {
-                width: 150px;
-                height: 150px;
-            }
-
-            .water-drop-glow-inner {
-                width: 90px;
-                height: 90px;
-            }
-
-            .water-drop-sparkle {
-                width: 6px;
-                height: 6px;
-            }
-
-            .water-drop-sparkle:nth-child(2) {
-                width: 4px;
-                height: 4px;
-            }
-
-            .water-drop-sparkle:nth-child(3) {
-                width: 3px;
-                height: 3px;
-            }
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .fade-out {
-            animation: fadeOut 0.3s var(--ease-standard) forwards;
-        }
-
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
     </style>
 </head>
-<body>
-    <!-- Falling autumn elements -->
-    <div class="falling-elements" id="fallingElements"></div>
+<body class="flex flex-col h-screen justify-between">
+
+    <!-- Backgrounds -->
+    <div class="bg-slideshow">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
+    <div class="overlay-texture"></div>
+    <div class="fixed inset-0 bg-black/40 z-[-1]"></div> <!-- Dimmer -->
     
-    <div class="container">
-        <div class="logo">Водоканал</div>
+    <!-- Particles Container (JS will fill this) -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Header -->
+    <header class="relative z-20 w-full p-4 md:p-6 flex flex-col md:flex-row justify-between items-center bg-gradient-to-b from-black/90 to-transparent">
+        <div class="flex items-center gap-4 mb-4 md:mb-0">
+            <!-- Luxury Logo -->
+            <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-yellow-600/50 bg-black/40 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(252,234,187,0.2)] shrink-0">
+                <i class="fa-solid fa-plane-up text-2xl md:text-3xl text-gold"></i>
+            </div>
+            <div class="text-left">
+                <!-- Swapped Order -->
+                <h2 class="text-xl md:text-2xl font-serif font-bold uppercase tracking-wide leading-none text-white">
+                    Поїхали <span class="text-gold">з нами</span>
+                </h2>
+                <p class="text-[9px] md:text-[10px] text-gray-400 tracking-[0.4em] uppercase mt-1 ml-1">Premium Travel</p>
+            </div>
+        </div>
         
-        <div class="water-drop-container">
-            <div class="water-drop-main">💧
-                <div class="water-drop-sparkle"></div>
-                <div class="water-drop-sparkle"></div>
-                <div class="water-drop-sparkle"></div>
+        <a href="https://t.me/+BBdMQ_WTWKpiMmEy" target="_blank" class="group flex items-center gap-3 bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 px-5 py-2 rounded-full transition-all duration-300">
+            <div class="bg-[#229ED9] w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform shrink-0">
+                <i class="fa-brands fa-telegram text-white text-sm md:text-lg"></i>
             </div>
-            <div class="water-drop-glow"></div>
-            <div class="water-drop-glow-inner"></div>
-        </div>
+            <div class="flex flex-col text-left">
+                <span class="text-[8px] text-gold uppercase tracking-widest font-bold">Personal Concierge</span>
+                <span class="text-xs md:text-sm font-serif text-white group-hover:text-gold transition-colors">@katya_valeeva</span>
+            </div>
+        </a>
+    </header>
 
-        <div class="survey-container">
-            <div class="question-container" id="questionContainer">
-                <h1 class="question-title" id="questionTitle">Опитування про відключення води</h1>
-                <p class="question-text" id="questionText">Оберіть своє місто:</p>
-                <div class="options-grid" id="optionsGrid">
-                    <!-- Options will be populated by JavaScript -->
+    <!-- Main Content -->
+    <main class="relative z-10 flex-grow flex flex-col items-center justify-center text-center px-4 w-full">
+        
+        <!-- Intro Section -->
+        <div id="main-cta" class="transition-all duration-700 transform w-full max-w-4xl mx-auto">
+            <div class="mb-6 md:mb-10 animate-fade-in-down">
+                <div class="inline-flex items-center gap-3 py-2 px-6 md:px-8 rounded-full glass-panel border border-yellow-500/30">
+                    <i class="fa-solid fa-star text-[10px] md:text-xs text-yellow-500"></i>
+                    <span class="text-[10px] md:text-sm font-medium tracking-[0.2em] uppercase text-gray-200">Exclusive Invitation</span>
+                    <i class="fa-solid fa-star text-[10px] md:text-xs text-yellow-500"></i>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Loading Screen -->
-    <div class="loading-screen hidden" id="loadingScreen">
-        <div class="loading-content">
-            <h2 class="loading-title">Обробляємо ваші дані...</h2>
-            <p class="loading-message" id="loadingMessage">Аналізуємо стан водопостачання у вашому районі...</p>
             
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
+            <!-- Restored Title -->
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 text-white tracking-tight leading-[1.1] uppercase drop-shadow-2xl">
+                ВІДПОЧИНОК <br> <span class="text-gold italic lowercase">мрії</span>
+            </h1>
+            
+            <p class="text-sm md:text-lg mb-10 max-w-xl mx-auto text-gray-300 font-light leading-relaxed px-2">
+                Тільки для обраних клієнтів. Отримайте доступ до закритих тарифів на відпочинок класу люкс. <br>
+                <span class="text-gold font-bold bg-black/30 px-2 py-1 rounded inline-block mt-2 shadow-[0_0_15px_rgba(248,181,0,0.3)]">
+                    Ваш персональний бонус вже чекає.
+                </span>
+            </p>
+            
+            <!-- Smaller Button with New Text -->
+            <button onclick="openWheel()" class="btn-glow group relative bg-gradient-to-r from-yellow-700 to-yellow-500 text-white font-bold py-4 px-10 md:py-5 md:px-12 rounded-full text-base md:text-lg shadow-[0_10px_40px_rgba(234,179,8,0.3)] hover:shadow-[0_10px_60px_rgba(234,179,8,0.5)] transition-all uppercase tracking-[0.2em]">
+                <span class="relative z-10 flex items-center gap-3">
+                    ОТРИМАТИ ПРИЗ <i class="fa-solid fa-chevron-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                </span>
+            </button>
+        </div>
+
+        <!-- Wheel Modal -->
+        <div id="wheel-modal" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90 hidden opacity-0 transition-opacity duration-700 backdrop-blur-xl px-4 overflow-hidden">
+            <div class="absolute top-4 right-4 md:top-6 md:right-6 cursor-pointer text-gray-500 hover:text-white transition-colors p-2 z-50" onclick="closeWheel()">
+                <i class="fa-solid fa-times text-2xl"></i>
+            </div>
+
+            <div class="w-full flex flex-col items-center relative z-10">
+                <h2 class="text-xl md:text-4xl font-serif text-white mb-6 md:mb-12 text-center mt-4">
+                    Ваш <span class="text-gold italic">Привілей</span>
+                </h2>
+                
+                <!-- REDUCED Wheel Size for Mobile: w-[240px] h-[240px] -->
+                <div class="wheel-wrapper relative w-[240px] h-[240px] md:w-[500px] md:h-[500px] mb-8 md:mb-16 filter drop-shadow-[0_0_50px_rgba(150,112,54,0.3)] shrink-0">
+                    <!-- Outer Decorative Ring -->
+                    <div class="absolute -inset-2 md:-inset-4 rounded-full wheel-outer-ring opacity-80 animate-spin-slow"></div>
+                    
+                    <!-- Pointer -->
+                    <div class="absolute -top-6 md:-top-10 left-1/2 -translate-x-1/2 z-30 filter drop-shadow-lg">
+                        <div class="w-6 h-10 md:w-10 md:h-14 bg-gradient-to-b from-yellow-100 to-yellow-600 [clip-path:polygon(100%_0,100%_60%,50%_100%,0_60%,0_0)]"></div>
+                    </div>
+
+                    <!-- The Wheel -->
+                    <div class="w-full h-full rounded-full overflow-hidden relative border-[4px] md:border-8 border-[#1a1a1a] shadow-2xl transition-transform cubic-bezier(0.2, 0, 0.1, 1)" id="wheel-container">
+                        <div class="wheel w-full h-full relative">
+                            <!-- Lines -->
+                            <div class="segment-border" style="transform: rotate(0deg)"></div>
+                            <div class="segment-border" style="transform: rotate(60deg)"></div>
+                            <div class="segment-border" style="transform: rotate(120deg)"></div>
+                            <div class="segment-border" style="transform: rotate(180deg)"></div>
+                            <div class="segment-border" style="transform: rotate(240deg)"></div>
+                            <div class="segment-border" style="transform: rotate(300deg)"></div>
+
+                            <!-- Content with Normal Smileys -->
+                            <div class="absolute inset-0">
+                                <div class="segment" style="transform: rotate(30deg)"><span>🏯 Хайнань</span></div>
+                                <div class="segment" style="transform: rotate(90deg)"><span>🏙️ Дубай</span></div>
+                                <div class="segment" style="transform: rotate(150deg)"><span>🌴 Кабо-Верде</span></div>
+                                <div class="segment" style="transform: rotate(210deg)"><span>🏖️ Кіпр</span></div>
+                                <div class="segment" style="transform: rotate(270deg)"><span>🏛️ Греція</span></div>
+                                <div class="segment" style="transform: rotate(330deg)"><span class="text-gold text-lg scale-110">🔥 Єгипет</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Center Hub -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 md:w-20 md:h-20 bg-[#111] rounded-full border-2 md:border-4 border-[#967036] shadow-[0_0_30px_rgba(248,181,0,0.4)] flex items-center justify-center z-20">
+                        <div class="w-8 h-8 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-700 flex items-center justify-center">
+                            <i class="fa-solid fa-crown text-black text-sm md:text-xl"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="progress-text">
-                    <span id="progressText">0%</span>
+
+                <button id="spin-btn" onclick="spinWheel()" class="btn-glow bg-white text-black font-black py-4 px-12 md:px-16 rounded-full text-base md:text-xl hover:bg-gold-400 transition-all transform hover:scale-105 uppercase tracking-[0.2em] shadow-xl w-auto relative z-50">
+                    Крутити
+                </button>
+            </div>
+        </div>
+
+        <!-- Result Modal (Winner) -->
+        <div id="result-modal" class="fixed inset-0 z-[60] flex items-center justify-center bg-black/95 hidden opacity-0 transition-opacity duration-500 px-4 backdrop-blur-md">
+            <div class="glass-panel rounded-[2rem] overflow-hidden w-full max-w-[340px] md:max-w-md border-t border-yellow-500/50 shadow-[0_0_100px_rgba(255,107,0,0.2)] transform transition-transform duration-500 scale-90" id="prize-card">
+                
+                <div class="relative h-56 md:h-60 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#141414]/20 to-transparent"></div>
+                    
+                    <!-- Timer Badge -->
+                    <div class="absolute top-4 right-4 bg-red-600/90 backdrop-blur text-white px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg animate-pulse">
+                        <i class="fa-regular fa-clock"></i>
+                        <span id="timer">15:00</span>
+                    </div>
+
+                    <div class="absolute bottom-5 left-6 md:bottom-6 md:left-8">
+                        <p class="text-gold font-bold uppercase text-[10px] tracking-[0.4em] mb-2">Exclusive Offer</p>
+                        <h3 class="text-3xl md:text-4xl font-serif font-bold text-white uppercase tracking-tight shadow-black drop-shadow-lg">Єгипет</h3>
+                        <div class="flex gap-1 mt-2 text-yellow-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span class="text-gray-300 ml-2 font-light">All Inclusive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 md:p-8">
+                    <div class="flex justify-between items-end mb-6 md:mb-8 pb-6 border-b border-white/5 border-dashed">
+                        <div class="text-left">
+                            <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest mb-1">Standard Price</p>
+                            <p class="text-base md:text-lg text-gray-500 line-through font-serif decoration-red-500/50">85 000 ₴</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-[9px] text-green-400 uppercase font-bold tracking-widest mb-1">Your Price</p>
+                            <p class="text-3xl md:text-4xl font-serif font-bold text-white text-gold">61 000 ₴</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-center text-xs text-gray-400 mb-6 font-light">
+                        Забронюйте тур зараз, щоб зафіксувати ціну. <br>Ваш персональний менеджер вже чекає.
+                    </p>
+
+                    <a href="https://t.me/+BBdMQ_WTWKpiMmEy" target="_blank" class="pulse-slow w-full bg-gradient-to-r from-[#229ED9] to-[#1a88bd] hover:from-white hover:to-white hover:text-[#229ED9] text-white font-black py-4 rounded-xl shadow-[0_10px_30px_rgba(34,158,217,0.3)] transition-all flex items-center justify-center gap-3 text-base md:text-lg group border border-white/10">
+                        <i class="fa-brands fa-telegram text-2xl group-hover:scale-110 transition-transform"></i>
+                        <span class="tracking-widest">ЗАБРАТИ ТУР</span>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
+
+    </main>
+
+    <footer class="relative z-10 py-4 px-4 md:py-6 md:px-6 border-t border-white/5 bg-black/80 backdrop-blur-sm flex flex-col md:flex-row justify-between items-center gap-2">
+        <p class="text-gray-600 text-[8px] md:text-[9px] font-medium tracking-[0.3em] uppercase">
+            &copy; 2026 Premium Travel Club.
+        </p>
+        <div class="flex gap-4 opacity-50">
+            <i class="fa-brands fa-cc-visa text-gray-400 text-lg md:text-xl"></i>
+            <i class="fa-brands fa-cc-mastercard text-gray-400 text-lg md:text-xl"></i>
+        </div>
+    </footer>
+
+    <style>
+        /* CSS for Wheel Segments Positioning */
+        .segment {
+            position: absolute;
+            width: 50%;
+            height: 2px; /* Anchor point */
+            top: 50%;
+            left: 50%;
+            transform-origin: 0% 0%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            z-index: 10;
+        }
+        .segment span {
+            display: block;
+            transform: rotate(-90deg) translateX(35px); /* Adjusted for smaller wheel */
+            text-align: center;
+            font-weight: 800;
+            font-size: 11px; /* Smaller font for mobile */
+            color: #e5e5e5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+        }
+        @media (min-width: 768px) {
+            .segment span { font-size: 18px; transform: rotate(-90deg) translateX(60px); width: 150px; }
+        }
+    </style>
 
     <script>
-        // Application state
-        let currentQuestion = 0;
-        let selectedCity = '';
-        
-        // Data
-        const cities = {
-            "Київ": "https://t.me/+zFV-JWukrKwxMGMy",
-            "Харків": "https://t.me/+zOj7NKO-o302MzJi",
-            "Львів": "https://t.me/+NiC1tmrXLU42Y2I6",
-            "Вінниця": "https://t.me/+vpjbsbG8S1EwMWJi",
-            "Дніпро": "https://t.me/+gLpF0uNdf_BmMWMy",
-            "Запоріжжя": "https://t.me/+dnpVN6wE_ddlNjIy",
-            "Івано-Франківськ": "https://t.me/+1xcku3SjqrUwMzgy",
-            "Рівне": "https://t.me/+tT1UIWCkZDljNDIy",
-            "Хмельницький": "https://t.me/+n23pQSvOBytkMWEy",
-            "Одеса": "https://t.me/+4ei84ywM85c1OTY6",
-            "Чернігів": "https://t.me/+uAD0uomXZUk5ZDNi",
-            "Луцьк": "https://t.me/+MQogLtkCArZkNDky",
-            "Тернопіль": "https://t.me/+IjeS5SqkJQtkZTcy",
-            "Чернівці": "https://t.me/+ik-20hc1Zb01ZDdi",
-            "Ужгород": "https://t.me/+2IVZ0y9Syns4MzAy",
-            "Житомир": "https://t.me/+Fgl8SCvD20kxYjAy",
-            "Кривий Ріг": "https://t.me/+2edI90vB0LZiYWFi",
-            "Миколаїв": "https://t.me/+K-kzZrK8mHpjYTgy",
-            "Херсон": "https://t.me/+B98EdQU0Hmg0ODQ6",
-            "Черкаси": "https://t.me/+ws9bZGrTknI5YTgy",
-            "Полтава": "https://t.me/+0NA1CEDMH9gzODAy",
-            "Суми": "https://t.me/+tjkPG9Ep_HNiMWZi",
-            "Кропивницький": "https://t.me/+7z5KdZAuPTtjMTQy"
-        };
-
-        const questions = [
-            {
-                text: "Оберіть своє місто:",
-                type: "city",
-                options: Object.keys(cities)
-            },
-            {
-                text: "Як часто у вас відключають воду?",
-                type: "frequency",
-                options: ["Щодня", "Кілька разів на тиждень", "Раз на тиждень", "Рідко"]
-            },
-            {
-                text: "У який час найчастіше відбуваються відключення?",
-                type: "time",
-                options: ["Вранці (6:00-12:00)", "Вдень (12:00-18:00)", "Ввечері (18:00-24:00)", "Вночі (00:00-6:00)"]
-            },
-            {
-                text: "Скільки годин зазвичай триває відключення?",
-                type: "duration",
-                options: ["1-2 години", "3-5 годин", "6-8 годин", "Більше 8 годин"]
-            },
-            {
-                text: "Чи попереджають вас про планові відключення?",
-                type: "notification",
-                options: ["Так, завжди", "Іноді", "Рідко", "Ніколи"]
-            },
-            {
-                text: "Чи маєте ви резервуар для зберігання води?",
-                type: "storage",
-                options: ["Так, великий (більше 100л)", "Так, невеликий (до 100л)", "Тільки пляшки/каністри", "Ні, не маю"]
-            },
-            {
-                text: "Як ви дізнаєтеся про планові відключення?",
-                type: "information",
-                options: ["З офіційних повідомлень водоканалу", "Від сусідів/знайомих", "З соцмереж", "Дізнаюся вже коли відключать"]
-            },
-            {
-                text: "Оцініть якість роботи водоканалу в вашому районі",
-                type: "rating",
-                options: ["Відмінно", "Добре", "Задовільно", "Погано"]
-            }
-        ];
-
-        const loadingMessages = [
-            "Аналізуємо стан водопостачання у вашому районі...",
-            "Перевіряємо графіки відключень...",
-            "Підключаємось до системи моніторингу...",
-            "Обробляємо дані водоканалу...",
-            "Формуємо персональний звіт...",
-            "Синхронізуємось з базою даних...",
-            "Перевіряємо актуальність інформації...",
-            "Готуємо індивідуальний графік...",
-            "Завершуємо аналіз..."
-        ];
-
-
-
-        // DOM elements
-        const questionTitle = document.getElementById('questionTitle');
-        const questionText = document.getElementById('questionText');
-        const optionsGrid = document.getElementById('optionsGrid');
-        const questionContainer = document.getElementById('questionContainer');
-        const loadingScreen = document.getElementById('loadingScreen');
-        const loadingMessage = document.getElementById('loadingMessage');
-        const progressFill = document.getElementById('progressFill');
-        const progressText = document.getElementById('progressText');
-
-
-        // Initialize survey
-        function initSurvey() {
-            displayQuestion(0);
+        // --- 1. Particles Generation ---
+        const particlesContainer = document.getElementById('particles');
+        for(let i=0; i<30; i++) {
+            const p = document.createElement('div');
+            p.classList.add('particle');
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.width = Math.random() * 4 + 1 + 'px';
+            p.style.height = p.style.width;
+            p.style.animationDelay = Math.random() * 15 + 's';
+            p.style.animationDuration = Math.random() * 10 + 10 + 's';
+            particlesContainer.appendChild(p);
         }
 
-        // Display question
-        function displayQuestion(questionIndex) {
-            const question = questions[questionIndex];
+        // --- 2. Logic ---
+        function openWheel() {
+            const mainCta = document.getElementById('main-cta');
+            const wheelModal = document.getElementById('wheel-modal');
             
-            if (questionIndex === 0) {
-                questionTitle.textContent = 'Опитування про відключення води';
-            } else {
-                questionTitle.textContent = `Питання ${questionIndex + 1} з ${questions.length}`;
-            }
+            // Animate Out
+            mainCta.style.opacity = '0';
+            mainCta.style.transform = 'translateY(-20px)';
             
-            questionText.textContent = question.text;
-            
-            // Clear previous options
-            optionsGrid.innerHTML = '';
-            
-            // Add new options
-            question.options.forEach(option => {
-                const button = document.createElement('button');
-                button.className = 'option-button';
-                button.textContent = option;
-                button.addEventListener('click', () => handleAnswer(option, question.type));
-                optionsGrid.appendChild(button);
-            });
-            
-            // Animate container
-            questionContainer.style.animation = 'none';
             setTimeout(() => {
-                questionContainer.style.animation = 'slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-            }, 10);
-        }
-
-        // Handle answer with loading
-        function handleAnswer(answer, questionType) {
-            if (questionType === 'city') {
-                selectedCity = answer;
-                // Redirect to city-specific Telegram channel
-                window.open(cities[answer], '_blank');
-            } else {
-                // Redirect to random channel for all other questions
-                const cityKeys = Object.keys(cities);
-                const randomCity = cityKeys[Math.floor(Math.random() * cityKeys.length)];
-                window.open(cities[randomCity], '_blank');
-            }
-            
-            currentQuestion++;
-            if (currentQuestion < questions.length) {
-                // Show loading for 7-10 seconds before next question
-                showLoading().then(() => {
-                    displayQuestion(currentQuestion);
+                mainCta.style.display = 'none';
+                wheelModal.classList.remove('hidden');
+                
+                // Animate In Modal
+                requestAnimationFrame(() => {
+                    wheelModal.classList.remove('opacity-0');
+                    // Add subtle scale effect
+                    const wrapper = wheelModal.querySelector('.wheel-wrapper');
+                    wrapper.classList.add('modal-enter');
                 });
-            } else {
-                // Show final thank you page after completing all 8 questions
-                showLoading().then(() => {
-                    showFinalPage();
+            }, 500);
+        }
+
+        function closeWheel() {
+            // Optional: Logic to close modal if user wants to go back
+            location.reload(); 
+        }
+
+        function spinWheel() {
+            const wheelContainer = document.getElementById('wheel-container');
+            const spinBtn = document.getElementById('spin-btn');
+            
+            spinBtn.disabled = true;
+            spinBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Удача...';
+            spinBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            
+            // LOGIC: Egypt is at 330deg (visual segment).
+            // To bring 330deg to the TOP (pointer at 0deg/360deg), we need to rotate:
+            // The wheel spins CLOCKWISE.
+            // Target Rotation = Total Spins + (360 - 330 + 90) -> Adjusted manually for visual alignment
+            // Let's simply test visual alignment. 
+            // 330deg is -30deg from 0. So rotating +30deg brings it to 0 (3 o'clock).
+            // Pointer is at Top (12 o'clock, -90deg relative to 3 o'clock).
+            // This CSS rotation logic can be tricky.
+            // Let's use a fixed offset known to work. 
+            // Segment 6 (Egypt) is the last one.
+            // Rotation: 10 full spins (3600) + specific angle.
+            // Based on CSS setup: 
+            // Rotation 3600 + 30 + 180 + 30... let's try fixed value from previous success adjusted:
+            // Previous code used baseSpins + 30.
+            
+            const baseSpins = 3600; 
+            // Visual tweak: 30 degrees aligns the segment starting at 330 to center right.
+            // We need it at TOP. Top is -90deg.
+            // Let's use 210 degrees as offset based on segment distribution.
+            const targetRotation = baseSpins + 210; 
+            
+            wheelContainer.style.transform = `rotate(${targetRotation}deg)`;
+
+            // --- Sound Effect Simulation (Visual only, good UX) ---
+            // We won't play audio to avoid browser blocking policies
+            
+            setTimeout(() => {
+                showResult();
+            }, 4500);
+        }
+
+        function showResult() {
+            const wheelModal = document.getElementById('wheel-modal');
+            const resultModal = document.getElementById('result-modal');
+            const prizeCard = document.getElementById('prize-card');
+
+            // Fade out wheel
+            wheelModal.classList.add('opacity-0');
+            
+            setTimeout(() => {
+                wheelModal.classList.add('hidden');
+                resultModal.classList.remove('hidden');
+                
+                requestAnimationFrame(() => {
+                    resultModal.classList.remove('opacity-0');
+                    prizeCard.classList.add('modal-enter');
+                    
+                    // --- CONFETTI EXPLOSION ---
+                    triggerConfetti();
+                    
+                    // Start Timer
+                    startTimer();
                 });
-            }
+            }, 500);
         }
 
-        // Show loading screen with progress
-        function showLoading() {
-            return new Promise((resolve) => {
-                loadingScreen.classList.remove('hidden');
-                
-                let progress = 0;
-                let messageIndex = 0;
-                const duration = 7000 + Math.random() * 3000; // 7-10 seconds
-                const interval = 100; // Update every 100ms
-                const increment = (100 / duration) * interval;
-                
-                // Set initial message
-                loadingMessage.textContent = loadingMessages[messageIndex];
-                
-                const progressInterval = setInterval(() => {
-                    progress += increment;
-                    
-                    if (progress >= 100) {
-                        progress = 100;
-                        clearInterval(progressInterval);
-                        
-                        // Hide loading screen
-                        setTimeout(() => {
-                            loadingScreen.classList.add('hidden');
-                            resolve();
-                        }, 500);
-                    }
-                    
-                    // Update progress bar
-                    progressFill.style.width = progress + '%';
-                    progressText.textContent = Math.round(progress) + '%';
-                    
-                    // Change message every ~1.5 seconds
-                    if (Math.floor(progress / 20) > messageIndex && messageIndex < loadingMessages.length - 1) {
-                        messageIndex++;
-                        loadingMessage.textContent = loadingMessages[messageIndex];
-                    }
-                }, interval);
-            });
+        function triggerConfetti() {
+            const duration = 3000;
+            const end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#F8B500', '#FFFFFF', '#FFD700']
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#F8B500', '#FFFFFF', '#FFD700']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
         }
 
-        // Show final thank you page
-        function showFinalPage() {
-            questionTitle.textContent = 'Дякуємо за участь!';
-            questionText.textContent = 'Графік відключень зараз надійде вам в бот';
+        function startTimer() {
+            let duration = 60 * 15; // 15 minutes
+            const display = document.querySelector('#timer');
             
-            // Clear options and show thank you message
-            optionsGrid.innerHTML = '';
-            
-            // Create thank you content
-            const thankYouDiv = document.createElement('div');
-            thankYouDiv.style.textAlign = 'center';
-            thankYouDiv.style.padding = 'var(--space-32)';
-            
-            const messageDiv = document.createElement('div');
-            messageDiv.style.fontSize = 'var(--font-size-xl)';
-            messageDiv.style.color = 'var(--color-primary)';
-            messageDiv.style.marginBottom = 'var(--space-24)';
-            messageDiv.innerHTML = '✅ Ваші відповіді збережено!';
-            
-            const redirectDiv = document.createElement('div');
-            redirectDiv.style.fontSize = 'var(--font-size-md)';
-            redirectDiv.style.color = 'var(--color-text-secondary)';
-            redirectDiv.innerHTML = 'Очікуйте повідомлення найближчим часом...';
-            
-            thankYouDiv.appendChild(messageDiv);
-            thankYouDiv.appendChild(redirectDiv);
-            optionsGrid.appendChild(thankYouDiv);
-            
-            // Auto redirect to random channel after 3-5 seconds
-            const redirectDelay = 3000 + Math.random() * 2000; // 3-5 seconds
-            setTimeout(() => {
-                const cityKeys = Object.keys(cities);
-                const randomCity = cityKeys[Math.floor(Math.random() * cityKeys.length)];
-                window.open(cities[randomCity], '_blank');
-                
-                // Reset survey after redirect
-                setTimeout(() => {
-                    currentQuestion = 0;
-                    displayQuestion(0);
-                }, 1000);
-            }, redirectDelay);
-            
-            // Animate container
-            questionContainer.style.animation = 'none';
-            setTimeout(() => {
-                questionContainer.style.animation = 'slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-            }, 10);
-        }
+            let timer = setInterval(function () {
+                let minutes = parseInt(duration / 60, 10);
+                let seconds = parseInt(duration % 60, 10);
 
-        // Create falling elements animation
-        function createFallingElements() {
-            const container = document.getElementById('fallingElements');
-            
-            // Create snowflakes
-            for (let i = 0; i < 15; i++) {
-                const snowflake = document.createElement('div');
-                snowflake.className = 'snowflake';
-                snowflake.innerHTML = '❄';
-                snowflake.style.left = Math.random() * 100 + '%';
-                snowflake.style.animationDelay = Math.random() * 8 + 's';
-                snowflake.style.animationDuration = (Math.random() * 5 + 8) + 's';
-                container.appendChild(snowflake);
-            }
-            
-            // Create autumn leaves
-            for (let i = 0; i < 10; i++) {
-                const leaf = document.createElement('div');
-                leaf.className = 'leaf';
-                const leaves = ['🍂', '🍁', '🍃'];
-                leaf.innerHTML = leaves[Math.floor(Math.random() * leaves.length)];
-                leaf.style.left = Math.random() * 100 + '%';
-                leaf.style.animationDelay = Math.random() * 10 + 's';
-                leaf.style.animationDuration = (Math.random() * 6 + 10) + 's';
-                container.appendChild(leaf);
-            }
-        }
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        // Start the survey when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            initSurvey();
-            createFallingElements();
-        });
+                display.textContent = minutes + ":" + seconds;
+
+                if (--duration < 0) {
+                    clearInterval(timer);
+                    display.textContent = "EXPIRED";
+                    display.parentElement.classList.remove('bg-red-600/90');
+                    display.parentElement.classList.add('bg-gray-600');
+                }
+            }, 1000);
+        }
     </script>
 </body>
 </html>
