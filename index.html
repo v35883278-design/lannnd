@@ -2,395 +2,209 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Поїхали з нами | VIP Travel Experience</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Vacation | Exclusive Travel</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1733223974304403');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1733223974304403&ev=PageView&noscript=1"
+    /></noscript>
     <style>
-        :root {
-            --gold: #D4AF37;
-            --gold-bright: #FBF5B7;
-            --gold-gradient: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
-            --dark-bg: #030303;
-        }
-
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark-bg);
-            color: #fff;
-            margin: 0;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
         }
 
-        .font-serif { font-family: 'Playfair Display', serif; }
+        h1, h2, .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
 
-        /* Анімовані золоті вогники */
-        .firefly {
+        .bg-travel {
+            background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             position: fixed;
-            width: 3px;
-            height: 3px;
-            background: var(--gold-bright);
-            border-radius: 50%;
-            filter: blur(1.5px);
-            box-shadow: 0 0 8px var(--gold);
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0;
-            animation: flight 12s infinite linear;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            transform: scale(1.05);
+            animation: slowZoom 20s infinite alternate;
         }
 
-        @keyframes flight {
-            0% { transform: translateY(110vh) translateX(0) scale(0); opacity: 0; }
-            20% { opacity: 0.6; transform: translateY(80vh) translateX(20px) scale(1); }
-            80% { opacity: 0.6; transform: translateY(20vh) translateX(-20px) scale(1); }
-            100% { transform: translateY(-10vh) translateX(40px) scale(0); opacity: 0; }
-        }
-
-        /* Luxury Button */
-        .btn-luxury {
-            background: var(--gold-gradient);
-            color: #000;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-            border: none;
-            box-shadow: 0 10px 40px -10px rgba(179, 135, 40, 0.5);
-        }
-
-        .btn-luxury:hover:not(:disabled) {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 50px -5px rgba(179, 135, 40, 0.7);
-        }
-
-        .btn-luxury::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -100%;
-            width: 100%; height: 200%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-            transform: rotate(25deg);
-            transition: 0.7s;
-        }
-
-        .btn-luxury:hover:not(:disabled)::after {
-            left: 150%;
-        }
-
-        /* Glassmorphism Wheel */
-        .wheel-container {
-            perspective: 1000px;
-        }
-
-        .wheel-main {
-            background: conic-gradient(
-                #0a0a0a 0deg 60deg, #121212 60deg 120deg, 
-                #0a0a0a 120deg 180deg, #121212 180deg 240deg, 
-                #0a0a0a 240deg 300deg, #121212 300deg 360deg
-            );
-            border: 8px solid #000;
-            box-shadow: 
-                0 0 0 1px var(--gold),
-                0 0 40px rgba(179, 135, 40, 0.3),
-                inset 0 0 100px rgba(0,0,0,0.8);
-        }
-
-        .segment-text {
-            position: absolute;
-            width: 50%; height: 2px;
-            top: 50%; left: 50%;
-            transform-origin: 0% 50%;
-            display: flex; align-items: center; justify-content: flex-end;
-            padding-right: 40px;
-            font-weight: 600; font-size: 11px; color: rgba(255,255,255,0.7);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        @media (min-width: 768px) {
-            .segment-text { font-size: 14px; padding-right: 60px; }
-        }
-
-        .slide-bg {
-            position: fixed; inset: 0; z-index: -2;
-            background-size: cover; background-position: center;
-            opacity: 0; transform: scale(1.1);
-            animation: kenBurns 12s infinite alternate ease-in-out;
-        }
-
-        @keyframes kenBurns {
-            0% { transform: scale(1); opacity: 0; }
-            10% { opacity: 0.3; }
-            90% { opacity: 0.3; }
-            100% { transform: scale(1.1); opacity: 0; }
-        }
-
-        .floating {
-            animation: floating 4s infinite ease-in-out;
-        }
-        @keyframes floating {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .blur-overlay {
-            position: fixed; inset: 0;
-            background: radial-gradient(circle at center, transparent 0%, var(--dark-bg) 90%);
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, #000000 100%);
             z-index: -1;
         }
 
-        /* Анімація стрілки */
-        #pointer {
-            transform-origin: top center;
-            transition: transform 0.1s ease-out;
+        @keyframes slowZoom {
+            from { transform: scale(1.0); }
+            to { transform: scale(1.1); }
         }
-        .pointer-tick {
-            transform: rotate(-15deg) scale(1.1);
+
+        .gold-bg {
+            background: linear-gradient(90deg, #D4AF37 0%, #F2E39B 50%, #D4AF37 100%);
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
         }
-        .pointer-final {
-            transform: translateY(5px) scale(0.95);
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-100 { animation-delay: 0.2s; }
+        .delay-200 { animation-delay: 0.4s; }
+        .delay-300 { animation-delay: 0.6s; }
+        .delay-400 { animation-delay: 0.8s; }
+
+        .firefly {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #D4AF37;
+            border-radius: 50%;
+            opacity: 0;
+            animation: fly 5s infinite ease-in-out;
+            box-shadow: 0 0 10px #D4AF37;
+        }
+
+        @keyframes fly {
+            0% { transform: translate(0, 0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translate(var(--x), var(--y)); opacity: 0; }
         }
     </style>
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1733223974304403');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1733223974304403&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
 </head>
-<body class="bg-black text-white">
+<body class="min-h-screen flex flex-col justify-between relative">
 
-    <div id="fireflies-container"></div>
-    <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1920');"></div>
-    <div class="blur-overlay"></div>
+    <div class="bg-travel"></div>
+    <div class="overlay"></div>
 
-    <!-- Header -->
-    <header class="relative z-30 w-full p-6 md:p-10 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent">
-        <div class="flex items-center gap-5">
-            <div class="w-12 h-12 rounded-full border border-gold/40 bg-black/60 flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.2)]">
-                <i class="fa-solid fa-plane-up text-gold text-xl"></i>
+    <div id="particles-container" class="absolute inset-0 overflow-hidden pointer-events-none z-0"></div>
+
+    <header class="relative z-10 p-6 flex justify-between items-center fade-in">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white transform -rotate-45"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg>
             </div>
-            <div class="leading-none">
-                <h2 class="text-xl md:text-2xl font-serif font-bold uppercase tracking-tighter">
-                    Поїхали <span class="text-gold">з нами</span>
-                </h2>
-                <p class="text-[9px] text-gray-500 tracking-[0.6em] uppercase mt-1">Exclusive Travel</p>
-            </div>
+            <span class="text-xs font-bold tracking-[0.2em] uppercase text-white/90">Поїхали з нами</span>
         </div>
-        
-        <a href="https://t.me/+Y-Jjps8gCxQ1MjBi" target="_blank" class="hidden md:flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-2 rounded-full backdrop-blur-md hover:bg-gold/10 hover:border-gold/30 transition-all group">
-            <span class="text-[10px] font-bold tracking-widest text-gray-300">ПРЯМИЙ ЗВ'ЯЗОК</span>
-            <div class="w-8 h-8 rounded-full bg-[#229ED9] flex items-center justify-center group-hover:scale-110 transition-transform">
-                <i class="fa-brands fa-telegram text-white text-sm"></i>
-            </div>
-        </a>
+        <div class="px-3 py-1 bg-white/10 rounded-full border border-white/10 backdrop-blur-md">
+            <span class="text-[10px] font-medium tracking-wider uppercase text-yellow-200">Exclusive Travel</span>
+        </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="relative z-20 flex-grow flex flex-col items-center justify-center px-6">
+    <main class="relative z-10 flex-grow flex flex-col items-center justify-center px-6 text-center w-full max-w-lg mx-auto mt-[-40px]">
         
-        <!-- Welcome Section -->
-        <div id="intro" class="text-center max-w-5xl transition-all duration-1000 ease-out">
-            <div class="floating">
-                <h1 class="text-6xl md:text-[9rem] font-serif font-bold mb-6 uppercase tracking-tighter leading-[0.85] text-white">
-                    ВІДПОЧИНОК <br> <span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600 italic lowercase">мрії</span>
-                </h1>
-            </div>
-            
-            <div class="flex flex-col md:flex-row items-center justify-center gap-10 mt-12 opacity-0 translate-y-10 animate-[fadeInUp_1s_forwards_0.5s]">
-                <p class="text-sm md:text-lg text-gray-400 font-light max-w-sm text-center md:text-left leading-relaxed">
-                    Отримайте доступ до закритих цін та преміальних напрямків, які не доступні у відкритому пошуку.
-                </p>
-                <button onclick="openWheel()" class="btn-luxury px-14 py-6 rounded-full text-base md:text-lg">
-                    ОТРИМАТИ БОНУС
-                </button>
+        <div class="mb-2 fade-in delay-100">
+            <p class="text-yellow-400/80 text-xs uppercase tracking-[0.3em] mb-4">Відкрий світ розкоші</p>
+            <h1 class="text-6xl md:text-7xl font-light italic leading-[0.9] text-white serif-font drop-shadow-2xl">
+                ВІДПОЧИНОК<br>
+                <span class="not-italic font-bold">МРІЇ</span>
+            </h1>
+        </div>
+
+        <p class="text-gray-300 text-sm font-light mt-6 leading-relaxed max-w-xs mx-auto fade-in delay-200">
+            Доступ до закритих цін та преміальних напрямків, які не доступні у відкритому пошуку.
+        </p>
+
+        <div class="mt-8 w-full fade-in delay-300">
+            <div class="glass-card rounded-xl p-6 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-full blur-3xl -mr-10 -mt-10"></div>
+                <div class="flex flex-col gap-2 items-center">
+                    <span class="text-xs text-gray-400 uppercase tracking-widest">Тільки сьогодні</span>
+                    <div class="text-3xl serif-font text-white">
+                        Знижки до <span class="text-yellow-400 font-bold">-50%</span>
+                    </div>
+                    <div class="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent my-2"></div>
+                    <p class="text-[11px] text-gray-400">Мальдіви • Балі • Дубай • Домінікана</p>
+                </div>
             </div>
         </div>
 
-        <!-- Wheel Section (Hidden) -->
-        <div id="wheel-section" class="hidden opacity-0 flex flex-col items-center justify-center w-full max-w-2xl transition-all duration-1000">
-            <h2 class="text-3xl md:text-5xl font-serif text-white mb-12 text-center tracking-tight leading-tight">
-                Ваш шанс на <br> <span class="text-gold italic">ексклюзивну знижку</span>
-            </h2>
-            
-            <div class="wheel-container relative w-[320px] h-[320px] md:w-[500px] md:h-[500px] shrink-0 mb-12">
-                <!-- Pointer -->
-                <div id="pointer" class="absolute -top-4 left-1/2 -translate-x-1/2 z-40 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-                    <svg width="40" height="50" viewBox="0 0 40 50">
-                        <path d="M20 50 L40 0 L0 0 Z" fill="#fff" />
-                    </svg>
-                </div>
-
-                <!-- Main Wheel -->
-                <div id="wheel" class="wheel-main w-full h-full rounded-full relative overflow-hidden transition-transform duration-[7s] cubic-bezier(0.15, 0, 0.1, 1)">
-                    <div class="segment-text" style="transform: rotate(30deg)"><span>🏯 Хайнань</span></div>
-                    <div class="segment-text" style="transform: rotate(90deg)"><span>🏙️ Дубай</span></div>
-                    <div class="segment-text" style="transform: rotate(150deg)"><span>🌴 Кабо-Верде</span></div>
-                    <div class="segment-text" style="transform: rotate(210deg)"><span>🏖️ Кіпр</span></div>
-                    <div class="segment-text" style="transform: rotate(270deg)"><span>🏛️ Греція</span></div>
-                    <div class="segment-text" style="transform: rotate(330deg)"><span class="text-gold font-black scale-150">🔥 ЄГИПЕТ</span></div>
-                    
-                    <!-- Center Hub -->
-                    <div class="absolute inset-0 m-auto w-20 h-20 md:w-28 md:h-28 bg-[#050505] rounded-full border-[10px] border-black z-30 flex items-center justify-center shadow-inner">
-                        <div class="w-full h-full rounded-full bg-gradient-to-br from-gold/40 to-transparent flex items-center justify-center">
-                            <i class="fa-solid fa-star text-gold text-2xl animate-pulse"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <button id="spin-btn" onclick="spinNow()" class="btn-luxury px-20 py-5 rounded-full text-lg">
-                КРУТИТИ
+        <div class="w-full mt-6 fade-in delay-400 pb-8">
+            <button onclick="handleCtaClick()" class="w-full py-4 gold-bg rounded-full shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:shadow-[0_0_50px_rgba(212,175,55,0.5)] transition-all transform hover:-translate-y-1 active:scale-95 group relative overflow-hidden">
+                <span class="relative z-10 text-black font-bold text-sm tracking-[0.2em] uppercase flex items-center justify-center gap-2">
+                    Отримати Бонус
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </span>
+                <div class="absolute inset-0 bg-white/30 skew-x-12 -translate-x-full group-hover:animate-[shimmer_1s_infinite]"></div>
             </button>
+            <p class="mt-4 text-[10px] text-gray-500/80">
+                *Пропозиція діє обмежений час
+            </p>
         </div>
 
-        <!-- Winner Modal -->
-        <div id="winner-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/95 hidden opacity-0 transition-all duration-700 px-4 backdrop-blur-2xl">
-            <div class="bg-[#080808] rounded-[3rem] overflow-hidden w-full max-w-lg border border-white/5 shadow-[0_0_100px_rgba(212,175,55,0.15)] transform scale-90" id="winner-card">
-                <div class="relative h-72">
-                    <img src="https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=1000" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent"></div>
-                    <div class="absolute bottom-8 left-10">
-                        <span class="text-gold text-xs font-bold uppercase tracking-[0.5em] mb-2 block">ПРИЗ ВИЗНАЧЕНО</span>
-                        <h3 class="text-6xl font-serif font-bold text-white uppercase tracking-tighter">Єгипет</h3>
-                    </div>
-                </div>
-                <div class="p-10 text-center">
-                    <div class="flex justify-between items-center mb-10 bg-white/5 p-8 rounded-[2rem]">
-                        <div class="text-left">
-                            <span class="text-[10px] text-gray-500 uppercase block tracking-widest">Стандарт</span>
-                            <span class="text-xl text-gray-500 line-through">85 000 ₴</span>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-[10px] text-gold uppercase block font-bold tracking-widest">Тільки для вас</span>
-                            <span class="text-5xl font-serif font-bold text-white">61 000 ₴</span>
-                        </div>
-                    </div>
-                   <a href="https://t.me/+Y-Jjps8gCxQ1MjBi" 
-   target="_blank" 
-   onclick="fbq('track', 'Lead', {value: 61000, currency: 'UAH', content_name: 'Egypt Booking'});"
-   class="btn-luxury block w-full py-6 rounded-3xl text-center text-lg no-underline">
-    ЗАБРОНЮВАТИ ЗАРАЗ
-</a>
-
-                </div>
-            </div>
-        </div>
     </main>
 
-    <footer class="relative z-30 py-8 px-10 border-t border-white/5 bg-black/60 flex flex-col md:flex-row justify-between items-center gap-4">
-        <span class="text-[10px] text-gray-600 uppercase tracking-[0.5em]">© 2026 VIP TRAVEL EXPERIENCE</span>
-        <div class="flex gap-8 opacity-30 grayscale hover:grayscale-0 transition-all duration-500">
-            <i class="fa-brands fa-cc-visa text-2xl"></i>
-            <i class="fa-brands fa-cc-mastercard text-2xl"></i>
-        </div>
-    </footer>
-
     <script>
-        // Анімація вогників
-        const container = document.getElementById('fireflies-container');
-        for (let i = 0; i < 30; i++) {
-            const firefly = document.createElement('div');
-            firefly.className = 'firefly';
-            firefly.style.left = Math.random() * 100 + 'vw';
-            firefly.style.animationDelay = Math.random() * 10 + 's';
-            firefly.style.animationDuration = (Math.random() * 6 + 8) + 's';
-            container.appendChild(firefly);
-        }
-
-        function openWheel() {
-            const intro = document.getElementById('intro');
-            const section = document.getElementById('wheel-section');
+        function handleCtaClick() {
+            // Відправляємо подію Lead у Facebook
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead');
+            }
             
-            intro.classList.add('opacity-0', '-translate-y-20');
-            setTimeout(() => {
-                intro.classList.add('hidden');
-                section.classList.remove('hidden');
-                setTimeout(() => section.classList.add('opacity-100'), 50);
-            }, 800);
-        }
-
-        let isSpinning = false;
-        function spinNow() {
-            if (isSpinning) return;
-            isSpinning = true;
-            
-            const wheel = document.getElementById('wheel');
-            const btn = document.getElementById('spin-btn');
-            const pointer = document.getElementById('pointer');
-            
-            btn.disabled = true;
-            btn.classList.add('opacity-20', 'cursor-not-allowed');
-            btn.textContent = "ЗАЧЕКАЙТЕ...";
-
-            // ФІКСОВАНИЙ РЕЗУЛЬТАТ НА ЄГИПЕТ
-            // Сектор Єгипет (330°). Для зупинки вгорі: 360 - 330 = 30°
-            const fullSpins = 8;
-            const targetRotation = (fullSpins * 360) + 30; 
-            
-            wheel.style.transform = `rotate(${targetRotation}deg)`;
-
-            // Анімація "тікання" стрілки
-            let currentRotation = 0;
-            const stepCount = 60 * fullSpins; // 6 секторів * кількість обертів
-            let tickInterval = setInterval(() => {
-                pointer.classList.add('pointer-tick');
-                setTimeout(() => pointer.classList.remove('pointer-tick'), 100);
+            // Перенаправляємо в Telegram через невелику затримку, щоб піксель встиг спрацювати
+            setTimeout(function() {
+                window.location.href = "https://t.me/+Y-Jjps8gCxQ1MjBi";
             }, 100);
-
-            // Зупиняємо "тікання" перед фіналом і робимо фінальний кивок
-            setTimeout(() => {
-                clearInterval(tickInterval);
-                pointer.classList.add('pointer-final'); // Стрілка "падає" в сектор
-            }, 6800);
-
-            setTimeout(() => {
-                confetti({
-                    particleCount: 250,
-                    spread: 90,
-                    origin: { y: 0.7 },
-                    colors: ['#D4AF37', '#ffffff', '#666666']
-                });
-                showWinner();
-            }, 7200);
         }
 
-        function showWinner() {
-            const modal = document.getElementById('winner-modal');
-            const card = document.getElementById('winner-card');
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.add('opacity-100');
-                card.classList.remove('scale-90');
-                card.classList.add('scale-100');
-            }, 100);
+        // Генерація "світлячків"
+        const particlesContainer = document.getElementById('particles-container');
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('firefly');
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            const x = (Math.random() - 0.5) * 200 + 'px';
+            const y = (Math.random() - 0.5) * 200 + 'px';
+            particle.style.setProperty('--x', x);
+            particle.style.setProperty('--y', y);
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            particlesContainer.appendChild(particle);
         }
     </script>
-    
-    <style>
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
 </body>
 </html>
