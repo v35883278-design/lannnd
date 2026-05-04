@@ -178,18 +178,29 @@
 
     </main>
 
-    <script>
-        function handleCtaClick() {
-            // Відправляємо подію Lead у Facebook
-            if (typeof fbq === 'function') {
-                fbq('track', 'Lead');
-            }
-            
-            // Перенаправляємо в Telegram через невелику затримку, щоб піксель встиг спрацювати
-            setTimeout(function() {
-                window.location.href = "https://t.me/+Y-Jjps8gCxQ1MjBi";
-            }, 100);
+  <script>
+function handleCtaClick(event) {
+    event.preventDefault();
+
+    let redirected = false;
+
+    function go() {
+        if (!redirected) {
+            redirected = true;
+            window.location.href = "https://t.me/+Y-Jjps8gCxQ1MjBi";
         }
+    }
+
+    if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+
+        // даём Pixel время точно отправить запрос
+        setTimeout(go, 1200);
+    } else {
+        go();
+    }
+}
+</script>
 
         // Генерація "світлячків"
         const particlesContainer = document.getElementById('particles-container');
